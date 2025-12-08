@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -37,6 +37,16 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-neutral-gray: var(--neutral-gray);
+  --color-lime-green: var(--lime-green);
+  --color-charcoal: var(--charcoal);
+  --color-slate-dark: var(--slate-dark);
+  --color-onyx: var(--onyx);
+  --color-cadet-blue: var(--cadet-blue);
+  --color-midnight-blue: var(--midnight-blue);
+  --color-jungle-green: var(--jungle-green);
+  --color-royal-purple: var(--royal-purple);
+  --color-snow: var(--snow);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -76,6 +86,16 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --neutral-gray: oklch(0.5771 0.0304 287.7);
+  --lime-green: oklch(0.8922 0.192 121.52);
+  --charcoal: oklch(0.3466 0.0103 253.97);
+  --slate-dark: oklch(0.4088 0.0016 106.47);
+  --onyx: oklch(0.2431 0.0019 106.54);
+  --cadet-blue: oklch(0.6949 0.0272 255.6);
+  --midnight-blue: oklch(0.2475 0.0246 263.97);
+  --jungle-green: oklch(0.6301 0.1238 162.83);
+  --royal-purple: oklch(0.4575 0.1583 284.9);
+  --snow: oklch(0.9851 0 0);
 }
 
 .dark {
@@ -110,6 +130,16 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --neutral-gray: oklch(0.5771 0.0304 287.7);
+  --lime-green: oklch(0.8922 0.192 121.52);
+  --charcoal: oklch(0.3466 0.0103 253.97);
+  --slate-dark: oklch(0.4088 0.0016 106.47);
+  --onyx: oklch(0.2431 0.0019 106.54);
+  --cadet-blue: oklch(0.6949 0.0272 255.6);
+  --midnight-blue: oklch(0.2475 0.0246 263.97);
+  --jungle-green: oklch(0.6301 0.1238 162.83);
+  --royal-purple: oklch(0.4575 0.1583 284.9);
+  --snow: oklch(0.9851 0 0);
 }
 
 @layer base {

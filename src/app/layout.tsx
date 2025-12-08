@@ -1,36 +1,22 @@
-"use client";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Kumbh_Sans } from 'next/font/google'
+import './globals.css'
+import LayoutClient from './layout.client'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-
+const kumbhSans = Kumbh_Sans({
+  variable: '--font-kumbh-sans',
+  subsets: ['latin'],
+})
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
-  const queryClient = new QueryClient();
-
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <QueryClientProvider client={queryClient}>
-          {children}
-        </QueryClientProvider>
+      <body className={`${kumbhSans.variable} antialiased`}>
+        <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
-  );
+  )
 }
