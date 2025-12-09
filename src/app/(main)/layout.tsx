@@ -20,7 +20,7 @@ export default function Layout({
           </header>
           {children}
         </main>
-      </SidebarProvider>{' '}
+      </SidebarProvider>
     </div>
   )
 }
