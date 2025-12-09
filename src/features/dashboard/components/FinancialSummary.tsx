@@ -10,7 +10,6 @@ export const FinancialSummary = ({ rawData }: FinancialSummaryProps) => {
     const balance = rawData.data.totalBalance
     const expense = rawData.data.totalExpense
     const savings = rawData.data.totalSavings
-    console.log(rawData);
     
   return (
     <div className="flex h-[105px] w-full items-center justify-between">

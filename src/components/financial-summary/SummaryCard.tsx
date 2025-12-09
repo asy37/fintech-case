@@ -1,8 +1,8 @@
 import { FinancialSummaryDataType } from '@/features/dashboard/types/financial-type'
 import React from 'react'
 import { Card, CardContent } from '../ui/card'
-import { formatCurrency } from './utils'
 import { Skeleton } from '../ui/skeleton'
+import { formatCurrency } from '@/lib/utils'
 
 interface Props {
   data: FinancialSummaryDataType
@@ -34,10 +34,10 @@ export const SummaryCards: React.FC<Props> = ({
         </CardContent>
       ) : (
         <CardContent className="flex items-center space-x-4">
-          <Skeleton className="h-12 w-12 rounded-full bg-neutral-gray" />
-          <div className="space-y-2 w-12">
-            <Skeleton className="h-4 max-w-12 bg-neutral-gray" />
-            <Skeleton className="h-4 max-w-12 bg-neutral-gray" />
+          <Skeleton className="bg-neutral-gray h-12 w-12 rounded-full" />
+          <div className="w-12 space-y-2">
+            <Skeleton className="bg-neutral-gray h-4 max-w-12" />
+            <Skeleton className="bg-neutral-gray h-4 max-w-12" />
           </div>
         </CardContent>
       )}

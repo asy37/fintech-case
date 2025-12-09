@@ -9,6 +9,7 @@ import {
 } from '../ui/table'
 import Image from 'next/image'
 import { Skeleton } from '../ui/skeleton'
+import { formatCurrency } from '@/lib/utils'
 
 export const TransactionTable = ({
   rawData,
@@ -16,6 +17,7 @@ export const TransactionTable = ({
   rawData: TransactionsResponse
 }) => {
   const isLoading = rawData.success
+
   return (
     <Table>
       <TableHeader>
@@ -36,45 +38,49 @@ export const TransactionTable = ({
       </TableHeader>
       <TableBody>
         {isLoading ? (
-          rawData.data.transactions.map((item) => (
-            <TableRow key={item.id}>
-              <TableCell className="flex items-center gap-3.5">
-                <Image
-                  src={item.image}
-                  alt={item.business}
-                  width={40}
-                  height={40}
-                />
-                <div className="flex flex-col items-center justify-center font-medium">
-                  <label
-                    htmlFor="text"
-                    className="text-midnight-blue text-center text-sm font-medium"
-                  >
-                    {item.name}
-                  </label>
-                  <label
-                    htmlFor="text"
-                    className="text-cadet-blue text-xs font-normal"
-                  >
-                    {item.business}
-                  </label>
-                </div>
-              </TableCell>
-              <TableCell className="text-cadet-blue text-center font-medium">
-                {item.type}
-              </TableCell>
-              <TableCell className="text-midnight-blue text-center text-sm font-semibold">
-                {item.amount}
-              </TableCell>
-              <TableCell className="text-cadet-blue text-center text-sm font-semibold">
-                {new Date(item.date).toLocaleDateString('en-GB', {
-                  day: '2-digit',
-                  month: 'short',
-                  year: 'numeric',
-                })}
-              </TableCell>
-            </TableRow>
-          ))
+          rawData.data.transactions.map((item) => {
+            const formattedAmount = formatCurrency(item.amount, item.currency)
+
+            return (
+              <TableRow key={item.id}>
+                <TableCell className="flex items-center gap-3.5">
+                  <Image
+                    src={item.image}
+                    alt={item.business}
+                    width={40}
+                    height={40}
+                  />
+                  <div className="flex flex-col items-center justify-center font-medium">
+                    <label
+                      htmlFor="text"
+                      className="text-midnight-blue text-center text-sm font-medium"
+                    >
+                      {item.name}
+                    </label>
+                    <label
+                      htmlFor="text"
+                      className="text-cadet-blue text-xs font-normal"
+                    >
+                      {item.business}
+                    </label>
+                  </div>
+                </TableCell>
+                <TableCell className="text-cadet-blue text-center font-medium">
+                  {item.type}
+                </TableCell>
+                <TableCell className="text-midnight-blue text-center text-sm font-semibold">
+                  {formattedAmount}
+                </TableCell>
+                <TableCell className="text-cadet-blue text-center text-sm font-semibold">
+                  {new Date(item.date).toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric',
+                  })}
+                </TableCell>
+              </TableRow>
+            )
+          })
         ) : (
           <TableRow>
             <TableCell>
