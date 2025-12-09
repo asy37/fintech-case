@@ -4,10 +4,35 @@ import WifiIcon from '@/assets/icons/WifiIcon'
 import VisaIcon from '@/assets/icons/VisaIcon'
 import MasterCardIcon from '@/assets/icons/MasterCardIcon'
 import { cn } from '@/lib/utils'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+import MoreIcon from '@/assets/icons/MoreIcon'
 
 export const Wallet = ({ rawData }: { rawData: WalletType }) => {
   return (
-    <div className='relative'>
+    <div className="relative h-[359px]">
+      <div className="flex w-full items-center justify-between p-1.5">
+        <h1 className="text-midnight-blue text-lg font-semibold">Wallet</h1>
+        <DropdownMenu>
+          <DropdownMenuTrigger className='cursor-pointer'>
+            <MoreIcon />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>Profile</DropdownMenuItem>
+            <DropdownMenuItem>Billing</DropdownMenuItem>
+            <DropdownMenuItem>Team</DropdownMenuItem>
+            <DropdownMenuItem>Subscription</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
       {rawData.data.cards.slice(-2).map((item, index) => {
         const isFirst = index === 0
         const isSecond = index === 1
@@ -15,10 +40,11 @@ export const Wallet = ({ rawData }: { rawData: WalletType }) => {
           <div
             key={item.id}
             className={cn(
-              'item-start flexflex-col rounded-2xl ',
+              'item-start flexflex-col rounded-2xl',
               isFirst &&
                 'from-slate-dark to-onyx h-[210px] w-[354px] bg-gradient-to-br p-[30px]',
-              isSecond && 'absolute z-10 top-32 left-4 h-[172px] w-[324px] bg-neutral-gray/10 backdrop-blur-sm p-4',
+              isSecond &&
+                'bg-neutral-gray/10 absolute top-44 left-4 z-10 h-[172px] w-[324px] p-4 backdrop-blur-sm',
             )}
           >
             {(() => {
@@ -49,7 +75,12 @@ export const Wallet = ({ rawData }: { rawData: WalletType }) => {
                 </div>
               )
             })()}
-            <div className={cn("flex w-full items-center justify-between", isFirst ? 'mt-[30px]':'mt-4')}>
+            <div
+              className={cn(
+                'flex w-full items-center justify-between',
+                isFirst ? 'mt-[30px]' : 'mt-4',
+              )}
+            >
               <ChipIcon />
               <WifiIcon />
             </div>
