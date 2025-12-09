@@ -1,4 +1,6 @@
+import { DashboardView } from '@/features/dashboard/view/Dashboard'
+
 const Dashboard = () => {
-  return <div>Dashboard</div>;
-};
-export default Dashboard;
+  return <DashboardView />
+}
+export default Dashboard
