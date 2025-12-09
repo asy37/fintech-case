@@ -1,12 +1,12 @@
-import type { Configuration } from 'webpack';
-import type { NextConfig } from 'next';
+import type { Configuration } from 'webpack'
+import type { NextConfig } from 'next'
 
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
   webpack(config: Configuration) {
-    config.module ??= {};
-    config.module.rules ??= [];
-    
+    config.module ??= {}
+    config.module.rules ??= []
+
     // Mevcut SVG loader'ı devre dışı bırak
     config.module.rules = config.module.rules.map((rule) => {
       if (
@@ -19,10 +19,10 @@ const nextConfig: NextConfig = {
         return {
           ...rule,
           exclude: /\.svg$/i,
-        };
+        }
       }
-      return rule;
-    });
+      return rule
+    })
 
     // SVG dosyalarını React component olarak yükle
     config.module.rules.push({
@@ -30,17 +30,25 @@ const nextConfig: NextConfig = {
       issuer: /\.[jt]sx?$/,
       use: [
         {
-          loader: "@svgr/webpack",
+          loader: '@svgr/webpack',
           options: {
             typescript: true,
-            ext: "tsx",
+            ext: 'tsx',
           },
         },
       ],
-    });
-    return config;
+    })
+    return config
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.ibb.co',
+      },
+    ],
   },
   turbopack: {},
-};
+}
 
-export default nextConfig;
+export default nextConfig
