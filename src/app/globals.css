@@ -47,6 +47,7 @@
   --color-jungle-green: var(--jungle-green);
   --color-royal-purple: var(--royal-purple);
   --color-snow: var(--snow);
+  --color-light-snow: var(--light-snow);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -96,6 +97,7 @@
   --jungle-green: oklch(0.6301 0.1238 162.83);
   --royal-purple: oklch(0.4575 0.1583 284.9);
   --snow: oklch(0.9851 0 0);
+  --light-snow: oklch(0.9791 0 0);
 }
 
 .dark {
@@ -140,6 +142,7 @@
   --jungle-green: oklch(0.6301 0.1238 162.83);
   --royal-purple: oklch(0.4575 0.1583 284.9);
   --snow: oklch(0.9851 0 0);
+  --light-snow: oklch(0.9791 0 0);
 }
 
 @layer base {
