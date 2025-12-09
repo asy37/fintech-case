@@ -19,9 +19,9 @@ export const SummaryCards: React.FC<Props> = ({
   const formattedAmount = formatCurrency(data.amount, data.currency)
 
   return (
-    <Card className="hover:bg-charcoal bg-light-snow group flex h-[105px] w-[222px] flex-row items-center px-5 py-6 transition-colors duration-200">
+    <Card className="hover:bg-charcoal bg-light-snow group flex h-[105px] w-[222px] flex-row items-center justify-center px-5 py-6 transition-colors duration-200">
       {loading ? (
-        <CardContent>
+        <CardContent className="flex w-full items-center gap-2 p-0">
           <span className="bg-snow flex h-10 w-10 shrink-0 items-center justify-center rounded-full group-hover:bg-gray-600">
             <Icon className="group-hover:fill-lime-green" />
           </span>

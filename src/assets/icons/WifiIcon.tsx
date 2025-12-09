@@ -11,9 +11,9 @@ const WifiIcon = () => (
     <path
       d="M17.2266 6.75129C21.93 12.6638 21.93 20.35 17.2266 26.2625M22.1567 2.75C28.7867 11.0825 28.7867 21.9175 22.1567 30.25M12.0558 9.33631C15.5125 13.6676 15.5125 19.3188 12.0558 23.65M6.87079 12.925C8.59912 15.0975 8.59912 17.9163 6.87079 20.0888"
       stroke="#363B41"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 )
