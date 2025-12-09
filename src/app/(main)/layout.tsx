@@ -13,7 +13,7 @@ export default function Layout({
     <div className="min-h-screen">
       <SidebarProvider>
         <AppSidebar />
-        <main className="w-full px-[30px] py-[40px] space-y-8">
+        <main className="w-full px-[40px] py-[30px] space-y-8">
           <header>
             <SidebarTrigger className="block md:hidden" />
             <MaindHeader />
