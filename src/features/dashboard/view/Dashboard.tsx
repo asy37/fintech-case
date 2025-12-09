@@ -4,17 +4,19 @@ import { FinancialSummary } from '../components/FinancialSummary'
 import { Wallet } from '../components/Wallet'
 import { WorkingCapital } from '../components/WorkingCapital'
 import { FinancialMock } from '../mock-data/financial'
+import { capitalMock } from '../mock-data/workingcapital'
 
 export const DashboardView = () => {
   const FinancialSummaryData = FinancialMock
+  const CapitalData = capitalMock
   return (
-    <div className='flex item-center gap-10'>
-      <div className='w-[717px] h-[749px] flex flex-col gap-[30px]'>
-        <FinancialSummary data={FinancialSummaryData} />
-        <WorkingCapital />
+    <div className="item-center flex gap-10">
+      <div className="flex h-[749px] w-[717px] flex-col gap-[30px]">
+        <FinancialSummary rawData={FinancialSummaryData} />
+        <WorkingCapital rawData={CapitalData} />
         <RecentTransaction />
       </div>
-      <div className='w-[354px] h-[749px]'>
+      <div className="h-[749px] w-[354px]">
         <Wallet />
         <ScheduledTransfers />
       </div>
