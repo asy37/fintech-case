@@ -9,7 +9,7 @@ export const DashboardView = () => {
   const FinancialSummaryData = FinancialMock
   return (
     <div className='flex item-center gap-10'>
-      <div className='w-[717px] h-[749px]'>
+      <div className='w-[717px] h-[749px] flex flex-col gap-[30px]'>
         <FinancialSummary data={FinancialSummaryData} />
         <WorkingCapital />
         <RecentTransaction />
