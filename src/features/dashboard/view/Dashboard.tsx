@@ -12,15 +12,15 @@ import { TransfersMock } from '../mock-data/scheduled'
 export const DashboardView = () => {
   return (
     <div className="item-center flex gap-10 md:flex-row flex-col">
-      <div className="flex h-[749px] w-[717px] flex-col gap-[30px]">
+      <div className="flex md:h-[749px] w-full md:w-[717px] flex-col gap-[30px]">
         <FinancialSummary rawData={FinancialMock} />
         <WorkingCapital rawData={capitalMock} />
-        <RecentTransaction rawData={TransactionsMock} />
+        {/* <RecentTransaction rawData={TransactionsMock} /> */}
       </div>
-      <div className="h-[749px] w-[354px] space-y-7">
+      {/* <div className="h-[749px] w-[354px] space-y-7">
         <Wallet rawData={WalletMock} />
         <ScheduledTransfers rawData={TransfersMock} />
-      </div>
+      </div> */}
     </div>
   )
 }

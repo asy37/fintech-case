@@ -1,18 +1,23 @@
-export type FinancialSummaryDataType = {
-  amount: number
-  currency: string
-  change: {
-    percentage: number
-    trend: string
+export type WorkingCapitalDataType = {
+    month: string,
+    income: number,
+    expense: number,
+    net: number,
   }
-}
-export type FinancialSummaryType = {
-  success: boolean
-  message: string
-  data: {
-    totalBalance: FinancialSummaryDataType
-    totalExpense: FinancialSummaryDataType
-    totalSavings: FinancialSummaryDataType
-    lastUpdated: string
+export type WorkingCapitalSummaryType = {
+    totalIncome: number,
+    totalExpense: number,
+    netBalance: number,
   }
-}
+
+  export type WorkingCapitalType = {
+    success: boolean
+    message: string
+    data: {
+        period: string,
+        currency: string
+        data: WorkingCapitalDataType[],
+        summary: WorkingCapitalSummaryType
+    }
+  }
+  

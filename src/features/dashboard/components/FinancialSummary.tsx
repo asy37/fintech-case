@@ -12,7 +12,7 @@ export const FinancialSummary = ({ rawData }: FinancialSummaryProps) => {
   const savings = rawData.data.totalSavings
 
   return (
-    <div className="flex h-[105px] w-full flex-col items-center justify-between gap-4 md:flex-row md:gap-0">
+    <div className="flex md:h-[105px] w-full flex-col items-center justify-between gap-4 md:flex-row md:gap-0">
       <SummaryCards
         data={balance}
         Icon={TotalWalletIcon}
