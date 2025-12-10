@@ -8,7 +8,7 @@ import {
 } from '@/shared/components/ui/select'
 import { Card, CardContent } from '@/shared/components/ui/card'
 import { Skeleton } from '@/shared/components/ui/skeleton'
-import { WorkingCapitalType } from '../../../shared/types/capital-type'
+import { WorkingCapitalType } from '@/shared/types/capital-type'
 
 export const WorkingCapital = ({
   rawData,

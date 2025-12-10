@@ -16,6 +16,7 @@ import Link from 'next/link'
 import HelpIcon from '@/assets/icons/Help.svg'
 import LogoutIcon from '@/assets/icons/Logout.svg'
 import { useLogout } from '@/features/auth/signin/api/hooks/useLogout'
+import { Spinner } from '../ui/spinner'
 
 export const AppSidebar = () => {
   const path = usePathname()
@@ -88,10 +89,16 @@ export const AppSidebar = () => {
                     onClick={() => logout()}
                     className="text-neutral-gray h-12 w-[200px] cursor-pointer rounded-md p-3.5 text-sm"
                   >
-                    <span className="h-5 w-5">
-                      <LogoutIcon className="fill-neutral-gray" />
-                    </span>
-                    <span>Logout</span>
+                    {isLoading ? (
+                      <Spinner />
+                    ) : (
+                      <>
+                        <span className="h-5 w-5">
+                          <LogoutIcon className="fill-neutral-gray" />
+                        </span>
+                        <span>Logout</span>
+                      </>
+                    )}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               </SidebarMenu>

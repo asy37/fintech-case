@@ -1,8 +1,7 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios'
 import { clearAuth, getAccessToken, setAccessToken } from '@/store/auth-store'
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL
 
 type AccessTokenShape = {
   accessToken?: string
@@ -17,21 +16,29 @@ type AxiosRequestConfigWithRetry = InternalAxiosRequestConfig & {
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
-  withCredentials: true, // refresh cookie'yi otomatik göndermek için
+  withCredentials: true,
 })
 
-// refresh isteği için ayrı client: 401 dönerse döngüye girmemesi için interceptors yok.
 const refreshClient = axios.create({
   baseURL: API_BASE_URL,
   withCredentials: true,
 })
 
 const extractAccessToken = (payload: AccessTokenShape): string | null => {
-  return (
-    payload?.accessToken ??
-    payload?.data?.accessToken ??
-    null
-  )
+  return payload?.accessToken ?? payload?.data?.accessToken ?? null
+}
+
+const setCookie = (name: string, value: string, days: number = 7) => {
+  if (typeof document === 'undefined') return
+
+  const expires = new Date()
+  expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000)
+  document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;SameSite=Lax`
+}
+
+const deleteCookie = (name: string) => {
+  if (typeof document === 'undefined') return
+  document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`
 }
 
 let refreshPromise: Promise<string | null> | null = null
@@ -39,19 +46,22 @@ let refreshPromise: Promise<string | null> | null = null
 const refreshAccessToken = async (): Promise<string | null> => {
   try {
     const response = await refreshClient.post<AccessTokenShape>(
-      '/users/refresh-token'
+      '/users/refresh-token',
     )
     const newToken = extractAccessToken(response.data)
 
     if (newToken) {
       setAccessToken(newToken)
+      setCookie('accessToken', newToken)
       return newToken
     }
 
     clearAuth()
+    deleteCookie('accessToken')
     return null
   } catch (error) {
     clearAuth()
+    deleteCookie('accessToken')
     return null
   }
 }
@@ -96,8 +106,7 @@ apiClient.interceptors.response.use(
     }
 
     return Promise.reject(error)
-  }
+  },
 )
 
 export { apiClient, API_BASE_URL, extractAccessToken }
-
