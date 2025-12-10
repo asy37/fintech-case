@@ -1,9 +1,9 @@
 import ChipIcon from '@/assets/icons/Chip'
-import { WalletType } from '../types/wallet-type'
+import { WalletType } from '../../../shared/types/wallet-type'
 import WifiIcon from '@/assets/icons/WifiIcon'
 import VisaIcon from '@/assets/icons/VisaIcon'
 import MasterCardIcon from '@/assets/icons/MasterCardIcon'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/utils'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,7 +11,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+} from '@/shared/components/ui/dropdown-menu'
 import MoreIcon from '@/assets/icons/MoreIcon'
 
 export const Wallet = ({ rawData }: { rawData: WalletType }) => {

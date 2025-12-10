@@ -1,4 +1,4 @@
-import { WorkingCapitalType } from "../types/capital-type";
+import { WorkingCapitalType } from "../../../shared/types/capital-type";
 
 export const capitalMock: WorkingCapitalType = {
   success: true,

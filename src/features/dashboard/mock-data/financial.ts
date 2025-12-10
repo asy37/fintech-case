@@ -1,4 +1,4 @@
-import { FinancialSummaryType } from '../types/financial-type'
+import { FinancialSummaryType } from '../../../shared/types/financial-type'
 
 export const FinancialMock: FinancialSummaryType = {
   success: true,

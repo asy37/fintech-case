@@ -1,8 +1,8 @@
 'use client'
 
-import { MaindHeader } from '@/components/main-layout/MainHeader'
-import { AppSidebar } from '@/components/sidebar/AppSidebar'
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
+import { MaindHeader } from '@/shared/components/main-layout/MainHeader'
+import { AppSidebar } from '@/shared/components/sidebar/AppSidebar'
+import { SidebarProvider, SidebarTrigger } from '@/shared/components/ui/sidebar'
 
 export default function Layout({
   children,
@@ -13,7 +13,7 @@ export default function Layout({
     <div className="min-h-screen">
       <SidebarProvider>
         <AppSidebar />
-        <main className="w-full px-[40px] py-[30px] space-y-8">
+        <main className="w-full space-y-8 px-[40px] py-[30px]">
           <header>
             <SidebarTrigger className="block md:hidden" />
             <MaindHeader />

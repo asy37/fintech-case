@@ -1,15 +1,15 @@
 import Link from 'next/link'
 import RightArrowIcon from '@/assets/icons/Arrow'
 import Image from 'next/image'
-import { ScheduledType } from '../types/scheduled-type'
-import { formatCurrency, formatFullDate } from '@/lib/utils'
-import { Separator } from '@/components/ui/separator'
+import { ScheduledType } from '../../../shared/types/scheduled-type'
+import { formatCurrency, formatFullDate } from '@/shared/utils'
+import { Separator } from '@/shared/components/ui/separator'
 
 export const ScheduledTransfers = ({ rawData }: { rawData: ScheduledType }) => {
   const data = rawData.data.transfers
   return (
     <div>
-      <div className="flex w-full items-center justify-between mb-6">
+      <div className="mb-6 flex w-full items-center justify-between">
         <h1 className="text-lg font-semibold">Scheduled Transfers</h1>
         <Link
           href={'/transactions'}
@@ -25,7 +25,7 @@ export const ScheduledTransfers = ({ rawData }: { rawData: ScheduledType }) => {
         const formattedAmount = formatCurrency(item.amount, item.currency)
         const formattedDate = formatFullDate(item.date)
         return (
-          <div key={item.id} className='space-y-4'>
+          <div key={item.id} className="space-y-4">
             <div className="flex w-full items-center justify-between">
               <div className="flex items-center gap-4">
                 <Image

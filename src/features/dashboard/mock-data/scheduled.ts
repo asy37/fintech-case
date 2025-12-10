@@ -1,4 +1,4 @@
-import { ScheduledType } from "../types/scheduled-type";
+import { ScheduledType } from "../../../shared/types/scheduled-type";
 
 export const TransfersMock: ScheduledType = {
   success: true,

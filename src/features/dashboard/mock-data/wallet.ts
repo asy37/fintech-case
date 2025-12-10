@@ -1,4 +1,4 @@
-import { WalletType } from '../types/wallet-type'
+import { WalletType } from '../../../shared/types/wallet-type'
 
 export const WalletMock: WalletType = {
   "success": true,

@@ -1,4 +1,4 @@
-import { TransactionsResponse } from '../types/transaction-type'
+import { TransactionsResponse } from '../../../shared/types/transaction-type'
 
 export const TransactionsMock: TransactionsResponse = {
   success: true,

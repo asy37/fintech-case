@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import SignInForm from '../components/SignUpForm'
-import AuthHero from '@/components/auth-hero/AuthHero'
+import SignUpForm from '../components/SignUpForm'
+import AuthHero from '@/shared/components/auth-hero/AuthHero'
 
 export const SingUpView = () => {
   return (
@@ -21,7 +21,7 @@ export const SingUpView = () => {
               Welcome back! Please enter your details{' '}
             </p>
 
-            <SignInForm />
+            <SignUpForm />
 
             <div className="text-neutral-gray flex items-start justify-center gap-1 text-center text-sm">
               Already have an account?{' '}

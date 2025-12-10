@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import SignInForm from '../components/SignInForm'
-import AuthHero from '@/components/auth-hero/AuthHero'
+import AuthHero from '@/shared/components/auth-hero/AuthHero'
 
 export const SingInView = () => {
   return (

@@ -1,14 +1,14 @@
-import LineChart from '@/components/chart/LineChart'
+import LineChart from '@/shared/components/chart/LineChart'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Card, CardContent } from '@/components/ui/card'
-import { Skeleton } from '@/components/ui/skeleton'
-import { WorkingCapitalType } from '../types/capital-type'
+} from '@/shared/components/ui/select'
+import { Card, CardContent } from '@/shared/components/ui/card'
+import { Skeleton } from '@/shared/components/ui/skeleton'
+import { WorkingCapitalType } from '../../../shared/types/capital-type'
 
 export const WorkingCapital = ({
   rawData,
@@ -23,11 +23,11 @@ export const WorkingCapital = ({
     <Card>
       {isLoading ? (
         <CardContent>
-          <div className="flex flex-col md:flex-row md:h-[30px] w-full items-center justify-between px-2 md:py-4">
+          <div className="flex w-full flex-col items-center justify-between px-2 md:h-[30px] md:flex-row md:py-4">
             <h1 className="text-lg font-semibold">Working Capital</h1>
-            <div className="flex md:h-[30px] w-[338px] items-center justify-center md:justify-between">
-              <div className="flex  h-4 gap-2">
-                <div className="flex items-center  gap-2.5">
+            <div className="flex w-[338px] items-center justify-center md:h-[30px] md:justify-between">
+              <div className="flex h-4 gap-2">
+                <div className="flex items-center gap-2.5">
                   <span className="bg-jungle-green h-2 w-2 rounded-full" />
                   <label className="text-xs font-normal" htmlFor="label">
                     Income
