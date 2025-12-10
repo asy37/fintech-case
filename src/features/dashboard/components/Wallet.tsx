@@ -20,7 +20,7 @@ export const Wallet = ({ rawData }: { rawData: WalletType }) => {
       <div className="flex w-full items-center justify-between p-1.5">
         <h1 className="text-midnight-blue text-lg font-semibold">Wallet</h1>
         <DropdownMenu>
-          <DropdownMenuTrigger className='cursor-pointer'>
+          <DropdownMenuTrigger className="cursor-pointer">
             <MoreIcon />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
@@ -42,9 +42,9 @@ export const Wallet = ({ rawData }: { rawData: WalletType }) => {
             className={cn(
               'item-start flexflex-col rounded-2xl',
               isFirst &&
-                'from-slate-dark to-onyx h-[210px] w-[354px] bg-gradient-to-br p-[30px]',
+                'from-slate-dark to-onyx h-[210px] w-full bg-gradient-to-br p-[30px] md:w-[354px]',
               isSecond &&
-                'bg-neutral-gray/10 absolute top-44 left-4 z-10 h-[172px] w-[324px] p-4 backdrop-blur-sm',
+                'bg-neutral-gray/10 absolute top-44 left-4 z-10 h-[172px] w-[90%] p-4 backdrop-blur-sm md:w-[324px]',
             )}
           >
             {(() => {

@@ -17,10 +17,10 @@ export const DashboardView = () => {
         <WorkingCapital rawData={capitalMock} />
         <RecentTransaction rawData={TransactionsMock} />
       </div>
-      {/* <div className="h-[749px] w-[354px] space-y-7">
+      <div className="md:h-[749px] md:w-[354px] w-full space-y-7">
         <Wallet rawData={WalletMock} />
         <ScheduledTransfers rawData={TransfersMock} />
-      </div> */}
+      </div>
     </div>
   )
 }
