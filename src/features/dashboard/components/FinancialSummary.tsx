@@ -7,15 +7,30 @@ import { SummaryCards } from '@/components/financial-summary/SummaryCard'
 type FinancialSummaryProps = { rawData: FinancialSummaryType }
 
 export const FinancialSummary = ({ rawData }: FinancialSummaryProps) => {
-    const balance = rawData.data.totalBalance
-    const expense = rawData.data.totalExpense
-    const savings = rawData.data.totalSavings
-    
+  const balance = rawData.data.totalBalance
+  const expense = rawData.data.totalExpense
+  const savings = rawData.data.totalSavings
+
   return (
-    <div className="flex h-[105px] w-full items-center justify-between">
-        <SummaryCards data={balance} Icon={TotalWalletIcon} title={'Total balance'} loading={rawData.success} />
-        <SummaryCards data={expense} Icon={TotalWalletIcon} title={'Total spending'} loading={rawData.success}/>
-        <SummaryCards data={savings} Icon={SavedWalletIcon} title={'Total saved'} loading={rawData.success}/>
+    <div className="flex h-[105px] w-full flex-col items-center justify-between gap-4 md:flex-row md:gap-0">
+      <SummaryCards
+        data={balance}
+        Icon={TotalWalletIcon}
+        title={'Total balance'}
+        loading={rawData.success}
+      />
+      <SummaryCards
+        data={expense}
+        Icon={TotalWalletIcon}
+        title={'Total spending'}
+        loading={rawData.success}
+      />
+      <SummaryCards
+        data={savings}
+        Icon={SavedWalletIcon}
+        title={'Total saved'}
+        loading={rawData.success}
+      />
     </div>
   )
 }
