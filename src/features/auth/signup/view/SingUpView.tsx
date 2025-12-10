@@ -5,12 +5,10 @@ import AuthHero from '@/components/auth-hero/AuthHero'
 export const SingUpView = () => {
   return (
     <>
-      {/* Left column: form */}
       <div className="flex min-h-screen w-full items-center justify-center">
         <div className="relative flex min-h-screen items-center">
           <header className="absolute top-10">
             <div className="flex items-center gap-10">
-              {/* Logo placeholder */}
               <Image src="/Logo.svg" alt="logo" height={30} width={107} />
             </div>
           </header>
@@ -39,7 +37,6 @@ export const SingUpView = () => {
         </div>
       </div>
 
-      {/* Right column: hero image */}
       <div className="hidden md:block">
         <AuthHero />
       </div>
