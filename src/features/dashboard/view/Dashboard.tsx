@@ -15,7 +15,7 @@ export const DashboardView = () => {
       <div className="flex md:h-[749px] w-full md:w-[717px] flex-col gap-[30px]">
         <FinancialSummary rawData={FinancialMock} />
         <WorkingCapital rawData={capitalMock} />
-        {/* <RecentTransaction rawData={TransactionsMock} /> */}
+        <RecentTransaction rawData={TransactionsMock} />
       </div>
       {/* <div className="h-[749px] w-[354px] space-y-7">
         <Wallet rawData={WalletMock} />

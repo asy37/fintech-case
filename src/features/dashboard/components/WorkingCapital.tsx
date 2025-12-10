@@ -23,7 +23,7 @@ export const WorkingCapital = ({
     <Card>
       {isLoading ? (
         <CardContent>
-          <div className="flex flex-col md:flex-row md:h-[30px] w-full items-center justify-between px-2 py-4">
+          <div className="flex flex-col md:flex-row md:h-[30px] w-full items-center justify-between px-2 md:py-4">
             <h1 className="text-lg font-semibold">Working Capital</h1>
             <div className="flex md:h-[30px] w-[338px] items-center justify-center md:justify-between">
               <div className="flex  h-4 gap-2">
