@@ -1,15 +1,18 @@
 'use client'
 import TotalWalletIcon from '@/assets/icons/TotalWallet.svg'
 import SavedWalletIcon from '@/assets/icons/SavedWallet.svg'
-import { FinancialSummaryType } from '../../../shared/types/financial-type'
+import { FinancialSummaryResponse } from '../types/financial-summary'
 import { SummaryCards } from '@/shared/components/financial-summary/SummaryCard'
 
-type FinancialSummaryProps = { rawData: FinancialSummaryType }
+type Props = {
+  data: FinancialSummaryResponse
+}
 
-export const FinancialSummary = ({ rawData }: FinancialSummaryProps) => {
-  const balance = rawData.data.totalBalance
-  const expense = rawData.data.totalExpense
-  const savings = rawData.data.totalSavings
+export const FinancialSummary = ({ data }: Props) => {
+ 
+  const balance = data.totalBalance
+  const expense = data.totalExpense
+  const savings = data.totalSavings
 
   return (
     <div className="flex w-full flex-col items-center justify-between gap-4 md:h-[105px] md:flex-row md:gap-0">
@@ -17,19 +20,19 @@ export const FinancialSummary = ({ rawData }: FinancialSummaryProps) => {
         data={balance}
         Icon={TotalWalletIcon}
         title={'Total balance'}
-        loading={rawData.success}
+        loading={true}
       />
       <SummaryCards
         data={expense}
         Icon={TotalWalletIcon}
         title={'Total spending'}
-        loading={rawData.success}
+        loading={true}
       />
       <SummaryCards
         data={savings}
         Icon={SavedWalletIcon}
         title={'Total saved'}
-        loading={rawData.success}
+        loading={true}
       />
     </div>
   )

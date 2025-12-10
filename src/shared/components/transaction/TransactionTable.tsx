@@ -1,4 +1,4 @@
-import { TransactionsResponse } from '@/shared/types/transaction-type'
+import { RecentTransactionsResponse } from '@/features/dashboard/types/recent-transactions'
 import {
   Table,
   TableBody,
@@ -9,14 +9,14 @@ import {
 } from '../ui/table'
 import Image from 'next/image'
 import { Skeleton } from '../ui/skeleton'
-import { formatCurrency } from '@/shared/utils'
+import { formatCurrency } from '@/shared/utils/currency-format'
 
-export const TransactionTable = ({
-  rawData,
-}: {
-  rawData: TransactionsResponse
-}) => {
-  const isLoading = rawData.success
+type Props = {
+  data: RecentTransactionsResponse
+}
+
+export const TransactionTable = ({ data }: Props) => {
+  const isLoading = true
 
   return (
     <Table>
@@ -38,7 +38,7 @@ export const TransactionTable = ({
       </TableHeader>
       <TableBody>
         {isLoading ? (
-          rawData.data.transactions.map((item) => {
+          data.transactions.map((item) => {
             const formattedAmount = formatCurrency(item.amount, item.currency)
 
             return (

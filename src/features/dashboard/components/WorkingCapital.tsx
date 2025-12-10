@@ -8,17 +8,17 @@ import {
 } from '@/shared/components/ui/select'
 import { Card, CardContent } from '@/shared/components/ui/card'
 import { Skeleton } from '@/shared/components/ui/skeleton'
-import { WorkingCapitalType } from '@/shared/types/capital-type'
+import { WorkingCapitalResponse } from '../types/working-capital'
 
-export const WorkingCapital = ({
-  rawData,
-}: {
-  rawData: WorkingCapitalType
-}) => {
-  const xData = rawData.data.data.map((item) => item.month)
-  const incomeSeries = rawData.data.data.map((item) => item.income)
-  const expenseSeries = rawData.data.data.map((item) => item.expense)
-  const isLoading = rawData.success
+type Props = {
+  data: WorkingCapitalResponse
+}
+
+export const WorkingCapital = ({ data }: Props) => {
+  const xData = data.data.map((item) => item.month)
+  const incomeSeries = data.data.map((item) => item.income)
+  const expenseSeries = data.data.map((item) => item.expense)
+  const isLoading = true
   return (
     <Card>
       {isLoading ? (

@@ -1,11 +1,11 @@
-import { FinancialSummaryDataType } from '@/shared/types/financial-type'
 import React from 'react'
 import { Card, CardContent } from '../ui/card'
 import { Skeleton } from '../ui/skeleton'
-import { formatCurrency } from '@/shared/utils'
+import { formatCurrency } from '@/shared/utils/currency-format'
+import { FinancialSummaryData } from '@/features/dashboard/types/financial-summary'
 
 interface Props {
-  data: FinancialSummaryDataType
+  data: FinancialSummaryData
   title: string
   Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
   loading: boolean
@@ -16,6 +16,8 @@ export const SummaryCards: React.FC<Props> = ({
   title,
   loading,
 }) => {
+
+
   const formattedAmount = formatCurrency(data.amount, data.currency)
 
   return (

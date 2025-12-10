@@ -1,12 +1,18 @@
 import Link from 'next/link'
 import RightArrowIcon from '@/assets/icons/Arrow'
 import Image from 'next/image'
-import { ScheduledType } from '../../../shared/types/scheduled-type'
-import { formatCurrency, formatFullDate } from '@/shared/utils'
-import { Separator } from '@/shared/components/ui/separator'
 
-export const ScheduledTransfers = ({ rawData }: { rawData: ScheduledType }) => {
-  const data = rawData.data.transfers
+import { formatCurrency } from '@/shared/utils/currency-format'
+import { Separator } from '@/shared/components/ui/separator'
+import { formatFullDate } from '@/shared/utils/date-format'
+import { ScheduledTransfersResponse } from '@/features/dashboard/types/scheduled-transfers'
+
+type Props = {
+  data: ScheduledTransfersResponse
+}
+
+export const ScheduledTransfers = ({ data }: Props) => {
+  const transfers = data.transfers
   return (
     <div>
       <div className="mb-6 flex w-full items-center justify-between">
@@ -21,7 +27,7 @@ export const ScheduledTransfers = ({ rawData }: { rawData: ScheduledType }) => {
           <RightArrowIcon />
         </Link>
       </div>
-      {data.map((item) => {
+      {transfers.map((item) => {
         const formattedAmount = formatCurrency(item.amount, item.currency)
         const formattedDate = formatFullDate(item.date)
         return (

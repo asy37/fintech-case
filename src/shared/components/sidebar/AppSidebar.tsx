@@ -11,12 +11,13 @@ import {
 import Image from 'next/image'
 import { mockSidebar } from './utils'
 import { usePathname } from 'next/navigation'
-import { cn } from '@/shared/utils'
+
 import Link from 'next/link'
 import HelpIcon from '@/assets/icons/Help.svg'
 import LogoutIcon from '@/assets/icons/Logout.svg'
-import { useLogout } from '@/features/auth/signin/api/hooks/useLogout'
+import { useLogout } from '@/features/users/login/api/hooks/useLogout'
 import { Spinner } from '../ui/spinner'
+import { cn } from '@/shared/utils/cn'
 
 export const AppSidebar = () => {
   const path = usePathname()

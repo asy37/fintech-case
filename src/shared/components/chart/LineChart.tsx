@@ -35,6 +35,7 @@ export default function LineChart({
         borderWidth: 1,
         textStyle: { color: '#000', fontWeight: 600 },
         padding: 10,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         formatter: (params: any) => {
           const item = params[0]
           return `

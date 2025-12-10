@@ -1,9 +1,9 @@
 import ChipIcon from '@/assets/icons/Chip'
-import { WalletType } from '../../../shared/types/wallet-type'
+import { WalletResponse } from '../types/wallet'
 import WifiIcon from '@/assets/icons/WifiIcon'
 import VisaIcon from '@/assets/icons/VisaIcon'
 import MasterCardIcon from '@/assets/icons/MasterCardIcon'
-import { cn } from '@/shared/utils'
+import { cn } from '@/shared/utils/cn'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,7 +14,11 @@ import {
 } from '@/shared/components/ui/dropdown-menu'
 import MoreIcon from '@/assets/icons/MoreIcon'
 
-export const Wallet = ({ rawData }: { rawData: WalletType }) => {
+type Props = {
+  data: WalletResponse
+}
+
+export const Wallet = ({ data }: Props) => {
   return (
     <div className="relative h-[359px]">
       <div className="flex w-full items-center justify-between p-1.5">
@@ -33,7 +37,7 @@ export const Wallet = ({ rawData }: { rawData: WalletType }) => {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      {rawData.data.cards.slice(-2).map((item, index) => {
+      {data.cards.slice(-2).map((item, index) => {
         const isFirst = index === 0
         const isSecond = index === 1
         return (

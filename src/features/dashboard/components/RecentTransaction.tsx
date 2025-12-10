@@ -1,14 +1,14 @@
 import { Card, CardContent } from '@/shared/components/ui/card'
 import RightArrowIcon from '@/assets/icons/Arrow'
 import Link from 'next/link'
-import { TransactionsResponse } from '../../../shared/types/transaction-type'
+import { RecentTransactionsResponse } from '../types/recent-transactions'
 import { TransactionTable } from '@/shared/components/transaction/TransactionTable'
 
-export const RecentTransaction = ({
-  rawData,
-}: {
-  rawData: TransactionsResponse
-}) => {
+type Props = {
+  data: RecentTransactionsResponse
+}
+
+export const RecentTransaction = ({ data }: Props) => {
   return (
     <Card>
       <CardContent>
@@ -24,7 +24,7 @@ export const RecentTransaction = ({
             <RightArrowIcon />
           </Link>
         </div>
-        <TransactionTable rawData={rawData} />
+        <TransactionTable data={data} />
       </CardContent>
     </Card>
   )
