@@ -50,6 +50,7 @@ export default function LoginForm() {
               id="email"
               placeholder="example@gmail.com"
               type="email"
+              disabled={isLoading}
               {...register('email')}
             />
             {errors.email && (
@@ -67,6 +68,7 @@ export default function LoginForm() {
                 errors.email && 'border-destructive',
               )}
               id="password"
+              disabled={isLoading}
               placeholder="********"
               type="password"
               {...register('password')}

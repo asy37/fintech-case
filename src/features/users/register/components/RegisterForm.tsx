@@ -52,6 +52,7 @@ export default function RegisterForm() {
               )}
               id="fullName"
               placeholder="Joe Doe"
+              disabled={isLoading}
               type="text"
               {...register('fullName')}
             />
@@ -70,6 +71,7 @@ export default function RegisterForm() {
                 errors.email && 'border-destructive',
               )}
               id="email"
+              disabled={isLoading}
               placeholder="example@gmail.com"
               type="email"
               {...register('email')}
@@ -89,6 +91,7 @@ export default function RegisterForm() {
                 errors.email && 'border-destructive',
               )}
               id="password"
+              disabled={isLoading}
               placeholder="********"
               type="password"
               {...register('password')}
