@@ -15,6 +15,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { useLogin } from '@/features/users/login/api/hooks/useLogin'
 import { GoogleIcon } from '@/shared/components/icons'
+import { cn } from '@/shared/utils/cn'
 
 export default function LoginForm() {
   const { login, isLoading } = useLogin()
@@ -42,7 +43,10 @@ export default function LoginForm() {
               Email
             </Label>
             <Input
-              className="text-neutral-gray h-12"
+              className={cn(
+                'text-neutral-gray h-12 focus-visible:ring-0',
+                errors.email && 'border-destructive',
+              )}
               id="email"
               placeholder="example@gmail.com"
               type="email"
@@ -58,7 +62,10 @@ export default function LoginForm() {
               Password
             </Label>
             <Input
-              className="text-neutral-gray h-12"
+              className={cn(
+                'text-neutral-gray h-12 focus-visible:ring-0',
+                errors.email && 'border-destructive',
+              )}
               id="password"
               placeholder="********"
               type="password"

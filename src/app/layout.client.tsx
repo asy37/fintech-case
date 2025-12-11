@@ -2,6 +2,7 @@
 import './globals.css'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { Toaster } from 'sonner'
 
 export default function LayoutClient({
   children,
@@ -12,6 +13,7 @@ export default function LayoutClient({
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Toaster position="top-right" richColors />
       {children}
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

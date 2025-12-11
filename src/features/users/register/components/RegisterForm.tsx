@@ -13,6 +13,7 @@ import {
 } from '@/features/users/register/types/register-schema'
 import { useRegister } from '@/features/users/register/api/hooks/useRegister'
 import { GoogleIcon } from '@/shared/components/icons'
+import { cn } from '@/shared/utils/cn'
 
 export default function RegisterForm() {
   const form = useForm<RegisterSchemaType>({
@@ -45,7 +46,10 @@ export default function RegisterForm() {
               Full Name
             </Label>
             <Input
-              className="text-neutral-gray h-12"
+              className={cn(
+                'text-neutral-gray h-12 focus-visible:ring-0',
+                errors.email && 'border-destructive',
+              )}
               id="fullName"
               placeholder="Joe Doe"
               type="text"
@@ -61,7 +65,10 @@ export default function RegisterForm() {
               Email
             </Label>
             <Input
-              className="text-neutral-gray h-12"
+              className={cn(
+                'text-neutral-gray h-12 focus-visible:ring-0',
+                errors.email && 'border-destructive',
+              )}
               id="email"
               placeholder="example@gmail.com"
               type="email"
@@ -77,7 +84,10 @@ export default function RegisterForm() {
               Password
             </Label>
             <Input
-              className="text-neutral-gray h-12"
+              className={cn(
+                'text-neutral-gray h-12 focus-visible:ring-0',
+                errors.email && 'border-destructive',
+              )}
               id="password"
               placeholder="********"
               type="password"

@@ -29,7 +29,7 @@ export const RegisterView = () => {
               Already have an account?{' '}
               <Link
                 prefetch={false}
-                className="text-midnight-blue flex flex-col items-center font-medium"
+                className="text-midnight-blue flex flex-col items-center font-medium hover:scale-105 transition-all duration-100"
                 href="login"
               >
                 Sign in
