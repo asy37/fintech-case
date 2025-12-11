@@ -2,6 +2,8 @@
 
 Modern bir fintech dashboard uygulaması. Next.js 16, TypeScript ve React Query ile geliştirilmiş, kullanıcı kimlik doğrulama, finansal özet, işletme sermayesi takibi, cüzdan yönetimi ve işlem geçmişi gibi özellikler sunar.
 
+Vercel Link:https://fintech-case-swart.vercel.app/
+
 ## 📋 İçindekiler
 
 - [Özellikler](#özellikler)
