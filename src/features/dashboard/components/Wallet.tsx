@@ -9,14 +9,18 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/shared/components/ui/dropdown-menu'
+import { WalletSkeleton } from './skeletons/WalletSkeleton'
 
 type Props = {
-  data: WalletResponse
+  data: WalletResponse | undefined
 }
 
 export const Wallet = ({ data }: Props) => {
+  if (data === undefined) {
+    return <WalletSkeleton />
+  }
   return (
-    <div className="relative h-[359px]">
+    <div className="relative h-[359px] w-full">
       <div className="flex w-full items-center justify-between p-1.5">
         <h1 className="text-midnight-blue text-lg font-semibold">Wallet</h1>
         <DropdownMenu>

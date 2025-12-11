@@ -1,4 +1,8 @@
-import { HydrationBoundary, dehydrate, queryOptions } from '@tanstack/react-query'
+import {
+  HydrationBoundary,
+  dehydrate,
+  queryOptions,
+} from '@tanstack/react-query'
 
 import { DashboardView } from '@/features/dashboard/view'
 import getQueryClient from '@/shared/api/getQueryClient'
@@ -26,22 +30,25 @@ export default async function Dashboard() {
     }),
     queryOptions({
       queryKey: ['transaction-recent'],
-      queryFn: getTransactionRecent,
+      queryFn: () => getTransactionRecent(5),
     }),
     queryOptions({
       queryKey: ['transfers-scheduled'],
-      queryFn: getTransfersScheduled,
+      queryFn: () => getTransfersScheduled(5),
     }),
   ]
 
   await Promise.allSettled(
     queries.map((query) =>
-      queryClient.prefetchQuery(query as Parameters<typeof queryClient.prefetchQuery>[0]).then(() => {
-        console.log(`${query.queryKey[0]} fetched`)
-      }).catch((error) => {
-        console.error(`${query.queryKey[0]} error`, error)
-      })
-    )
+      queryClient
+        .prefetchQuery(query as Parameters<typeof queryClient.prefetchQuery>[0])
+        .then(() => {
+          console.log(`${query.queryKey[0]} fetched`)
+        })
+        .catch((error) => {
+          console.error(`${query.queryKey[0]} error`, error)
+        }),
+    ),
   )
 
   return (

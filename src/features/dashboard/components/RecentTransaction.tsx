@@ -3,12 +3,15 @@ import { ArrowIcon } from '@/shared/components/icons'
 import Link from 'next/link'
 import { RecentTransactionsResponse } from '../types/recent-transactions'
 import { TransactionTable } from '@/shared/components/transaction/TransactionTable'
+import { RecentTransactionSkeleton } from './skeletons/RecentTransactionSkeleton'
 
 type Props = {
-  data: RecentTransactionsResponse
+  data: RecentTransactionsResponse | undefined
 }
 
 export const RecentTransaction = ({ data }: Props) => {
+  if (data === undefined) return <RecentTransactionSkeleton />
+
   return (
     <Card>
       <CardContent>

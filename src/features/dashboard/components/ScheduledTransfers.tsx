@@ -6,15 +6,19 @@ import { formatFullDate } from '@/shared/utils/date-format'
 import { ScheduledTransfersResponse } from '@/features/dashboard/types/scheduled-transfers'
 import Avatar from '@/shared/components/ui/avatar/avatar'
 import { cn } from '@/shared/utils/cn'
+import { ScheduledTransfersSkeleton } from './skeletons/ScheduledTransfersSkeleton'
 
 type Props = {
-  data: ScheduledTransfersResponse
+  data: ScheduledTransfersResponse | undefined
 }
 
 export const ScheduledTransfers = ({ data }: Props) => {
+  if (data === undefined) {
+    return <ScheduledTransfersSkeleton />
+  }
   const transfers = data.transfers
   return (
-    <div>
+    <div className='w-full'>
       <div className="mb-6 flex w-full items-center justify-between">
         <h1 className="text-lg font-semibold">Scheduled Transfers</h1>
         <Link

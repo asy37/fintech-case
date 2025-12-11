@@ -15,37 +15,19 @@ export const DashboardView = () => {
   const { data: summary } = useFinancialSummary()
   const { data: workingCapital } = useWorkingCapital()
   const { data: wallet } = useWallet()
-  const { data: transactions } = useTransactionRecent()
-  const { data: transfers } = useTransfersScheduled()
-
-
-  if (!summary || !workingCapital || !transactions || !wallet || !transfers) {
-    return (
-      <div className="item-center flex flex-col gap-10 md:flex-row">
-        <div className="flex w-full flex-col gap-[30px] md:h-[749px] md:w-[717px]">
-          <div className="h-[105px] w-full animate-pulse rounded-lg bg-gray-200" />
-          <div className="h-[400px] w-full animate-pulse rounded-lg bg-gray-200" />
-          <div className="h-[300px] w-full animate-pulse rounded-lg bg-gray-200" />
-        </div>
-        <div className="w-full space-y-7 md:h-[749px] md:w-[354px]">
-          <div className="h-[359px] w-full animate-pulse rounded-lg bg-gray-200" />
-          <div className="h-[200px] w-full animate-pulse rounded-lg bg-gray-200" />
-        </div>
-      </div>
-    )
-  }
-
+  const { data: transactions } = useTransactionRecent(5)
+  const { data: transfers } = useTransfersScheduled(5)
   return (
-    <div className="item-center flex flex-col gap-10 md:flex-row">
-      <div className="flex w-full flex-col gap-[30px] md:h-[749px] md:w-[717px]">
-        <FinancialSummary data={summary.data} />
-        <WorkingCapital data={workingCapital.data} />
-        <RecentTransaction data={transactions.data} />
+    <div className="item-center flex flex-col gap-10 lg:flex-row">
+      <div className="flex w-full flex-col gap-[30px] lg:h-[749px] lg:w-[717px]">
+        <FinancialSummary data={summary?.data} />
+        <WorkingCapital data={workingCapital?.data} />
+        <RecentTransaction data={transactions?.data} />
       </div>
 
-      <div className="w-full space-y-7 md:h-[749px] md:w-[354px]">
-        <Wallet data={wallet.data} />
-        <ScheduledTransfers data={transfers.data} />
+      <div className="w-full flex items-center flex-col space-y-7 lg:h-[749px] lg:w-[354px]">
+        <Wallet data={wallet?.data} />
+        <ScheduledTransfers data={transfers?.data} />
       </div>
     </div>
   )
