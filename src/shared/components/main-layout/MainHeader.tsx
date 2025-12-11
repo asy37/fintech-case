@@ -27,7 +27,7 @@ export const MaindHeader = ({ pageTitle }: { pageTitle: string }) => {
         {pageTitle}
       </h1>
       <Image
-        src="/icons/Logo.svg"
+        src="/icons/logo.svg"
         alt="logo"
         height={30}
         width={107}
