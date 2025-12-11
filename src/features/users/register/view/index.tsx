@@ -11,7 +11,7 @@ export const RegisterView = () => {
         <div className="relative flex min-h-screen items-center">
           <header className="absolute top-10">
             <div className="flex items-center gap-10">
-              <Image src="/icons/Logo.svg" alt="logo" height={30} width={107} />
+              <Image src="/icons/logo.svg" alt="logo" height={30} width={107} />
             </div>
           </header>
 
