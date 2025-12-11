@@ -64,7 +64,7 @@ export const AppSidebar = () => {
             <SidebarGroup>
               <SidebarMenu>
                 <SidebarMenuItem>
-                  <Link href="/help">
+                  <Link href="#">
                     <SidebarMenuButton
                       className={cn(
                         'text-neutral-gray h-12 w-[200px] cursor-pointer rounded-md p-3.5 text-sm',
@@ -86,6 +86,7 @@ export const AppSidebar = () => {
                 </SidebarMenuItem>
                 <SidebarMenuItem>
                   <SidebarMenuButton
+                    disabled={false}
                     onClick={() => logout()}
                     className="text-neutral-gray h-12 w-[200px] cursor-pointer rounded-md p-3.5 text-sm"
                   >

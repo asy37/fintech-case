@@ -15,7 +15,7 @@ export const RegisterView = () => {
             </div>
           </header>
 
-          <div className="w-[404px] max-w-md space-y-6">
+          <div className="w-full md:w-[404px] space-y-6">
             <h1 className="text-smidnight-blue text-3xl font-semibold">
               Create new account
             </h1>
