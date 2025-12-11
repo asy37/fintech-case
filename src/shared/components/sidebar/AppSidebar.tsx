@@ -26,7 +26,7 @@ export const AppSidebar = () => {
       <SidebarHeader className="p-12 md:p-2">
         <Image src="/icons/Logo.svg" alt="logo" height={30} width={107} />
       </SidebarHeader>
-      <div className="flex h-full flex-col items-center gap-80 md:gap-0 md:justify-between">
+      <div className="flex h-full flex-col items-center gap-24 sm:gap-80 md:gap-0 md:justify-between">
         <div>
           <SidebarGroup>
             <SidebarMenu>
