@@ -15,7 +15,7 @@ export const LoginView = () => {
             </div>
           </header>
 
-          <div className="w-full md:w-[404px] max-w-md space-y-6">
+          <div className="w-full max-w-md space-y-6 md:w-[404px]">
             <h1 className="text-smidnight-blue text-3xl font-semibold">
               Sign In
             </h1>
@@ -29,7 +29,7 @@ export const LoginView = () => {
               Don&apos;t have an account?{' '}
               <Link
                 prefetch={false}
-                className="text-midnight-blue flex flex-col items-center font-medium hover:scale-105 transition-all duration-100"
+                className="text-midnight-blue flex flex-col items-center font-medium transition-all duration-100 hover:scale-105"
                 href="/register"
               >
                 Sign up

@@ -1,15 +1,5 @@
-/**
- * Request Interceptor
- * Handles authorization token injection
- */
-
 import { AxiosInstance, InternalAxiosRequestConfig } from 'axios'
 
-/**
- * Sets up request interceptor to add authorization token
- * @param instance - Axios instance to configure
- * @param getToken - Function to retrieve access token (can be async for server-side)
- */
 export const setupRequestInterceptor = (
   instance: AxiosInstance,
   getToken: () => string | null | Promise<string | null>,
@@ -29,4 +19,3 @@ export const setupRequestInterceptor = (
     },
   )
 }
-

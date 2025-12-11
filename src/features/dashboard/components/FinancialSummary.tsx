@@ -16,7 +16,7 @@ export const FinancialSummary = ({ data }: Props) => {
   const expense = data.totalExpense
   const savings = data.totalSavings
   return (
-    <div className="flex w-full items-center justify-between gap-4 overflow-x-scroll md:h-[105px]  md:gap-0">
+    <div className="flex w-full items-center justify-between gap-4 overflow-x-scroll md:h-[105px] md:gap-0">
       <SummaryCards
         data={balance}
         Icon={TotalWalletIcon}

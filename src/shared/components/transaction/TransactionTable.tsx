@@ -6,10 +6,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '../ui/table'
+} from '@/shared/components/ui/table'
 import { formatCurrency } from '@/shared/utils/currency-format'
 import Avatar from '../ui/avatar/avatar'
-import { RecentTransactionSkeleton } from '@/features/dashboard/components/skeletons/RecentTransactionSkeleton'
 
 type Props = {
   data: RecentTransactionsResponse

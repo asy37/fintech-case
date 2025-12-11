@@ -18,11 +18,11 @@ export const ScheduledTransfers = ({ data }: Props) => {
   }
   const transfers = data.transfers
   return (
-    <div className='w-full'>
+    <div className="w-full">
       <div className="mb-6 flex w-full items-center justify-between">
         <h1 className="text-lg font-semibold">Scheduled Transfers</h1>
         <Link
-          href={'/transactions'}
+          href={'/#'}
           className="flex items-center transition-all duration-200 hover:scale-105"
         >
           <span className="text-jungle-green text-sm font-semibold">
@@ -36,9 +36,14 @@ export const ScheduledTransfers = ({ data }: Props) => {
         const formattedDate = formatFullDate(item.date)
         return (
           <div key={item.id} className="space-y-4">
-            <div className={cn("flex w-full items-center justify-between pb-2.5 pt-1.5",
-              item.id === transfers.at(-1)?.id ? '' : 'border-b border-border' 
-            )}>
+            <div
+              className={cn(
+                'flex w-full items-center justify-between pt-1.5 pb-2.5',
+                item.id === transfers.at(-1)?.id
+                  ? ''
+                  : 'border-border border-b',
+              )}
+            >
               <div className="flex items-center gap-4">
                 <Avatar
                   src={item.image}

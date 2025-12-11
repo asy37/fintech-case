@@ -22,7 +22,7 @@ export const MaindHeader = ({ pageTitle }: { pageTitle: string }) => {
   const formattedFullName = capitalizeWords(fullName)
 
   return (
-    <div className="flex h-12 w-full  items-center justify-between">
+    <div className="flex h-12 w-full items-center justify-between">
       <h1 className="text-midnight-blue hidden text-2xl font-semibold md:block">
         {pageTitle}
       </h1>

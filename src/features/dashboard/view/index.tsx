@@ -18,7 +18,7 @@ export const DashboardView = () => {
   const { data: transactions } = useTransactionRecent(3)
   const { data: transfers } = useTransfersScheduled()
   return (
-    <div className="item-center flex flex-col gap-10 lg:h-[749px] w-full lg:flex-row lg:justify-between">
+    <div className="item-center flex w-full flex-col gap-10 lg:h-[749px] lg:flex-row lg:justify-between">
       <div className="flex w-full flex-col gap-[30px] lg:min-w-[717px]">
         <FinancialSummary data={summary?.data} />
         <WorkingCapital data={workingCapital?.data} />
