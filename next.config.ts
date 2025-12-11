@@ -7,24 +7,9 @@ const nextConfig: NextConfig = {
     config.module ??= {}
     config.module.rules ??= []
 
-    // Mevcut SVG loader'ı devre dışı bırak
-    config.module.rules = config.module.rules.map((rule) => {
-      if (
-        rule &&
-        typeof rule === 'object' &&
-        'test' in rule &&
-        rule.test instanceof RegExp &&
-        rule.test.test('.svg')
-      ) {
-        return {
-          ...rule,
-          exclude: /\.svg$/i,
-        }
-      }
-      return rule
-    })
-
-    // SVG dosyalarını React component olarak yükle
+    // SVG dosyalarını React component olarak inline yükle (isteğe bağlı)
+    // Not: Artık icon'lar TSX component olarak kullanılıyor, bu yapılandırma
+    // başka SVG kullanımları için geçerli
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
@@ -33,7 +18,7 @@ const nextConfig: NextConfig = {
           loader: '@svgr/webpack',
           options: {
             typescript: true,
-            ext: 'tsx',
+            icon: true,
           },
         },
       ],
@@ -52,7 +37,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  turbopack: {},
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
+      },
+    },
+  },
 }
 
 export default nextConfig

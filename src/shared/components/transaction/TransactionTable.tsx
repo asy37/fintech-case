@@ -7,9 +7,9 @@ import {
   TableHeader,
   TableRow,
 } from '../ui/table'
-import Image from 'next/image'
 import { Skeleton } from '../ui/skeleton'
 import { formatCurrency } from '@/shared/utils/currency-format'
+import Avatar from '../ui/avatar/avatar'
 
 type Props = {
   data: RecentTransactionsResponse
@@ -44,7 +44,8 @@ export const TransactionTable = ({ data }: Props) => {
             return (
               <TableRow key={item.id}>
                 <TableCell className="flex items-center gap-3.5">
-                  <Image
+                  <Avatar
+                    shape="square"
                     src={item.image}
                     alt={item.business}
                     width={40}

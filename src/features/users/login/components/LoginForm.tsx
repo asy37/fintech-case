@@ -5,13 +5,16 @@ import { Input } from '@/shared/components/ui/input'
 import { Button } from '@/shared/components/ui/button'
 import { Label } from '@/shared/components/ui/label'
 import { Card, CardContent } from '@/shared/components/ui/card'
-import Image from 'next/image'
 import { Spinner } from '@/shared/components/ui/spinner'
 
-import { LoginSchema, LoginSchemaType } from '@/features/users/login/types/login-schema'
+import {
+  LoginSchema,
+  LoginSchemaType,
+} from '@/features/users/login/types/login-schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { useLogin } from '@/features/users/login/api/hooks/useLogin'
+import { GoogleIcon } from '@/shared/components/icons'
 
 export default function LoginForm() {
   const { login, isLoading } = useLogin()
@@ -68,7 +71,7 @@ export default function LoginForm() {
 
           <Button
             type="submit"
-            className="bg-lime-green text-midnight-blue h-12 w-full"
+            className="bg-lime-green text-midnight-blue h-12 w-full cursor-pointer hover:text-white"
             disabled={isLoading}
           >
             {isLoading ? <Spinner /> : 'Sign In'}
@@ -78,12 +81,9 @@ export default function LoginForm() {
             <Button
               type="button"
               variant="outline"
-              className="text-neutral-gray h-12 w-full"
-              onClick={() => {
-                globalThis.location.href = '/api/auth/google'
-              }}
+              className="text-neutral-gray h-12 w-full cursor-pointer"
             >
-              <Image src="/Google.svg" alt="google" height={24} width={24} />
+              <GoogleIcon />
               Sign in with Google
             </Button>
           </div>

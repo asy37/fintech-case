@@ -1,10 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
 import { toast } from 'sonner'
 import { getWorkingCapital } from '@/features/dashboard/api/services/getWorkingCapital'
-import type { WorkingCapitalResponse } from '@/features/dashboard/types/working-capital'
 
 export const useWorkingCapital = () => {
-  return useQuery<WorkingCapitalResponse>({
+  return useQuery({
     queryKey: ['working-capital'],
     queryFn: async () => {
       const response = await getWorkingCapital()
@@ -12,7 +11,7 @@ export const useWorkingCapital = () => {
         toast.error(response.message)
         throw new Error(response.message)
       }
-      return response.data
+      return response
     },
   })
 }

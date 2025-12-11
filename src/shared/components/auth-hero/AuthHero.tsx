@@ -5,7 +5,7 @@ import Image from 'next/image'
 export default function AuthHero() {
   return (
     <div className="relative h-full w-[675px]">
-      <Image src="/hero.svg" alt="hero" fill className="object-cover" />
+      <Image src="/images/hero-bg.jpg" alt="hero" fill className="object-cover" />
     </div>
   )
 }

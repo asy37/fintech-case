@@ -1,5 +1,5 @@
 import { Card, CardContent } from '@/shared/components/ui/card'
-import RightArrowIcon from '@/assets/icons/Arrow'
+import { ArrowIcon } from '@/shared/components/icons'
 import Link from 'next/link'
 import { RecentTransactionsResponse } from '../types/recent-transactions'
 import { TransactionTable } from '@/shared/components/transaction/TransactionTable'
@@ -21,7 +21,7 @@ export const RecentTransaction = ({ data }: Props) => {
             <span className="text-jungle-green text-sm font-semibold">
               View All
             </span>
-            <RightArrowIcon />
+            <ArrowIcon />
           </Link>
         </div>
         <TransactionTable data={data} />

@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Input } from '@/shared/components/ui/input'
@@ -13,6 +12,7 @@ import {
   type RegisterSchemaType,
 } from '@/features/users/register/types/register-schema'
 import { useRegister } from '@/features/users/register/api/hooks/useRegister'
+import { GoogleIcon } from '@/shared/components/icons'
 
 export default function RegisterForm() {
   const form = useForm<RegisterSchemaType>({
@@ -90,7 +90,7 @@ export default function RegisterForm() {
 
           <Button
             type="submit"
-            className="bg-lime-green text-midnight-blue h-12 w-full"
+            className="bg-lime-green text-midnight-blue h-12 w-full cursor-pointer hover:text-white"
             disabled={isLoading}
           >
             {isLoading ? <Spinner /> : 'Create Account'}
@@ -100,12 +100,9 @@ export default function RegisterForm() {
             <Button
               type="button"
               variant="outline"
-              className="text-neutral-gray h-12 w-full"
-              onClick={() => {
-                globalThis.location.href = '/api/auth/google'
-              }}
+              className="text-neutral-gray h-12 w-full cursor-pointer"
             >
-              <Image src="/Google.svg" alt="google" height={24} width={24} />
+              <GoogleIcon />
               Sign up with Google
             </Button>
           </div>

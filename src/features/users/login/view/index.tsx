@@ -1,6 +1,8 @@
 import Image from 'next/image'
-import SignInForm from '../components/LoginForm'
+import LoginForm from '../components/LoginForm'
 import AuthHero from '@/shared/components/auth-hero/AuthHero'
+import Link from 'next/link'
+import { HoverUnderlineIcon } from '@/shared/components/icons'
 
 export const LoginView = () => {
   return (
@@ -9,7 +11,7 @@ export const LoginView = () => {
         <div className="relative flex min-h-screen items-center">
           <header className="absolute top-10">
             <div className="flex items-center gap-10">
-              <Image src="/Logo.svg" alt="logo" height={30} width={107} />
+              <Image src="/icons/Logo.svg" alt="logo" height={30} width={107} />
             </div>
           </header>
 
@@ -21,17 +23,18 @@ export const LoginView = () => {
               Welcome back! Please enter your details
             </p>
 
-            <SignInForm />
+            <LoginForm />
 
             <div className="text-neutral-gray flex items-start justify-center gap-1 text-center text-sm">
               Don&apos;t have an account?{' '}
-              <a
+              <Link
+                prefetch={false}
                 className="text-midnight-blue flex flex-col items-center font-medium"
-                href="/sign-up"
+                href="/register"
               >
                 Sign up
-                <Image src="/vector.svg" alt="vector" width={43} height={5} />
-              </a>
+                <HoverUnderlineIcon className="text-lime-green" />
+              </Link>
             </div>
           </div>
         </div>

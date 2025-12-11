@@ -1,26 +1,29 @@
-'use client'
+import {
+  HydrationBoundary,
+  dehydrate,
+  queryOptions,
+} from '@tanstack/react-query'
+import { LayoutClient } from './layout.client'
+import getQueryClient from '@/shared/api/getQueryClient'
+import { getUser } from '@/features/users/user/api/services/getUser'
 
-import { MaindHeader } from '@/shared/components/main-layout/MainHeader'
-import { AppSidebar } from '@/shared/components/sidebar/AppSidebar'
-import { SidebarProvider, SidebarTrigger } from '@/shared/components/ui/sidebar'
-
-export default function Layout({
+export default async function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const queryClient = getQueryClient()
+
+  await queryClient.prefetchQuery(
+    queryOptions({
+      queryKey: ['user-profile'],
+      queryFn: getUser,
+    }),
+  )
+
   return (
-    <div className="min-h-screen">
-      <SidebarProvider>
-        <AppSidebar />
-        <main className="w-full space-y-8 px-[40px] py-[30px]">
-          <header>
-            <SidebarTrigger className="block md:hidden" />
-            <MaindHeader />
-          </header>
-          {children}
-        </main>
-      </SidebarProvider>
-    </div>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <LayoutClient>{children}</LayoutClient>
+    </HydrationBoundary>
   )
 }

@@ -13,8 +13,7 @@ import { mockSidebar } from './utils'
 import { usePathname } from 'next/navigation'
 
 import Link from 'next/link'
-import HelpIcon from '@/assets/icons/Help.svg'
-import LogoutIcon from '@/assets/icons/Logout.svg'
+import { HelpIcon, LogoutIcon } from '@/shared/components/icons'
 import { useLogout } from '@/features/users/login/api/hooks/useLogout'
 import { Spinner } from '../ui/spinner'
 import { cn } from '@/shared/utils/cn'
@@ -25,7 +24,7 @@ export const AppSidebar = () => {
   return (
     <Sidebar className="bg-snow px-6 pt-[30px] pb-[100px]">
       <SidebarHeader className="p-12 md:p-2">
-        <Image src="/Logo.svg" alt="logo" height={30} width={107} />
+        <Image src="/icons/Logo.svg" alt="logo" height={30} width={107} />
       </SidebarHeader>
       <div className="flex h-full flex-col items-center md:justify-between">
         <div>

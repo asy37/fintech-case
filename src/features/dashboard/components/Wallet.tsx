@@ -1,8 +1,5 @@
-import ChipIcon from '@/assets/icons/Chip'
+import { ChipIcon, WifiIcon, VisaIcon, MasterCardIcon, MoreIcon } from '@/shared/components/icons'
 import { WalletResponse } from '../types/wallet'
-import WifiIcon from '@/assets/icons/WifiIcon'
-import VisaIcon from '@/assets/icons/VisaIcon'
-import MasterCardIcon from '@/assets/icons/MasterCardIcon'
 import { cn } from '@/shared/utils/cn'
 import {
   DropdownMenu,
@@ -12,7 +9,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/shared/components/ui/dropdown-menu'
-import MoreIcon from '@/assets/icons/MoreIcon'
 
 type Props = {
   data: WalletResponse
@@ -44,9 +40,9 @@ export const Wallet = ({ data }: Props) => {
           <div
             key={item.id}
             className={cn(
-              'item-start flexflex-col rounded-2xl',
+              'items-start flex flex-col rounded-2xl',
               isFirst &&
-                'from-slate-dark to-onyx h-[210px] w-full bg-gradient-to-br p-[30px] md:w-[354px]',
+                'from-slate-dark to-onyx h-[210px] w-full bg-linear-to-br p-[30px] md:w-[354px]',
               isSecond &&
                 'bg-neutral-gray/10 absolute top-44 left-4 z-10 h-[172px] w-[90%] p-4 backdrop-blur-sm md:w-[324px]',
             )}

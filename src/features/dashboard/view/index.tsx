@@ -38,14 +38,14 @@ export const DashboardView = () => {
   return (
     <div className="item-center flex flex-col gap-10 md:flex-row">
       <div className="flex w-full flex-col gap-[30px] md:h-[749px] md:w-[717px]">
-        <FinancialSummary data={summary} />
-        <WorkingCapital data={workingCapital} />
-        <RecentTransaction data={transactions} />
+        <FinancialSummary data={summary.data} />
+        <WorkingCapital data={workingCapital.data} />
+        <RecentTransaction data={transactions.data} />
       </div>
 
       <div className="w-full space-y-7 md:h-[749px] md:w-[354px]">
-        <Wallet data={wallet} />
-        <ScheduledTransfers data={transfers} />
+        <Wallet data={wallet.data} />
+        <ScheduledTransfers data={transfers.data} />
       </div>
     </div>
   )

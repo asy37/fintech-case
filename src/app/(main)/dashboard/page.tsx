@@ -34,9 +34,13 @@ export default async function Dashboard() {
     }),
   ]
 
-  await Promise.all(
+  await Promise.allSettled(
     queries.map((query) =>
-      queryClient.prefetchQuery(query as Parameters<typeof queryClient.prefetchQuery>[0])
+      queryClient.prefetchQuery(query as Parameters<typeof queryClient.prefetchQuery>[0]).then(() => {
+        console.log(`${query.queryKey[0]} fetched`)
+      }).catch((error) => {
+        console.error(`${query.queryKey[0]} error`, error)
+      })
     )
   )
 

@@ -1,7 +1,5 @@
-import NotificationIcon from '@/assets/icons/Notification.svg'
-import SearchIcon from '@/assets/icons/Search.svg'
-import DropdownIcon from '@/assets/icons/Dropdown.svg'
-import { Avatar, AvatarImage } from '@/shared/components/ui/avatar'
+import { NotificationIcon, SearchIcon, DropdownIcon } from '@/shared/components/icons'
+import { Avatar } from '@/shared/components/ui/avatar/avatar'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,10 +9,16 @@ import {
   DropdownMenuTrigger,
 } from '@/shared/components/ui/dropdown-menu'
 import { usePathname } from 'next/navigation'
-import { formatPath } from './utils'
+import { capitalizeWords, formatPath } from './utils'
+import { useUser } from '@/features/users/user/api/hooks/useUser'
+
 export const MaindHeader = () => {
   const path = usePathname()
   const pageTitle = formatPath(path)
+  const { data: user } = useUser()
+  const { fullName } = user?.data || {}
+  const formattedFullName = capitalizeWords(fullName)
+
   return (
     <div className="flex h-12 min-w-full items-center justify-between">
       <h1 className="text-midnight-blue text-2xl font-semibold">{pageTitle}</h1>
@@ -26,15 +30,10 @@ export const MaindHeader = () => {
         <div>
           <DropdownMenu>
             <DropdownMenuTrigger className="bg-snow hover:bg-slate-dark/10 flex w-fit items-center gap-4 rounded-full px-2 py-4 transition-all duration-100 md:w-[215px]">
-              <Avatar>
-                <AvatarImage
-                  src="https://github.com/shadcn.png"
-                  alt="@shadcn"
-                />
-              </Avatar>
+              <Avatar shape="circle" alt={formattedFullName} />
               <div className="flex items-center gap-6">
                 <span className="text-midnight-blue hidden text-sm font-semibold md:inline">
-                  Ahmet Yılmaz
+                  {formattedFullName}
                 </span>
                 <DropdownIcon />
               </div>

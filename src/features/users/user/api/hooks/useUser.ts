@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
 import { toast } from 'sonner'
-import { getWallet } from '@/features/dashboard/api/services/getWallet'
+import { getUser } from '@/features/users/user/api/services/getUser'
 
-export const useWallet = () => {
+export const useUser = () => {
   return useQuery({
-    queryKey: ['wallet'],
+    queryKey: ['user-profile'],
     queryFn: async () => {
-      const response = await getWallet()
+      const response = await getUser()
       if (!response.success) {
         toast.error(response.message)
         throw new Error(response.message)
@@ -15,4 +15,3 @@ export const useWallet = () => {
     },
   })
 }
-

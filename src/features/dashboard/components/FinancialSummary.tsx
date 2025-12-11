@@ -1,6 +1,5 @@
 'use client'
-import TotalWalletIcon from '@/assets/icons/TotalWallet.svg'
-import SavedWalletIcon from '@/assets/icons/SavedWallet.svg'
+import { TotalWalletIcon, SavedWalletIcon } from '@/shared/components/icons'
 import { FinancialSummaryResponse } from '../types/financial-summary'
 import { SummaryCards } from '@/shared/components/financial-summary/SummaryCard'
 
