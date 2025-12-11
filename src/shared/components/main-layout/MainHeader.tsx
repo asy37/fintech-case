@@ -24,12 +24,12 @@ export const MaindHeader = () => {
       <h1 className="text-midnight-blue text-2xl font-semibold">{pageTitle}</h1>
       <div className="flex w-fit items-center justify-between md:w-[353px]">
         <div className="flex items-center justify-center gap-2 md:gap-10">
-          <SearchIcon className="cursor-pointer rounded-full transition-all duration-100 hover:scale-105" />
-          <NotificationIcon className="cursor-pointer rounded-full transition-all duration-100 hover:scale-105" />
+          <SearchIcon className="cursor-pointer fill-white text-neutral-gray rounded-full transition-all duration-100 hover:scale-105" />
+          <NotificationIcon className="cursor-pointer text-neutral-gray rounded-full transition-all duration-100 hover:scale-105" />
         </div>
         <div>
           <DropdownMenu>
-            <DropdownMenuTrigger className="bg-snow hover:bg-slate-dark/10 flex w-fit items-center gap-4 rounded-full px-2 py-4 transition-all duration-100 md:w-[215px]">
+            <DropdownMenuTrigger className="bg-snow hover:bg-slate-dark/10 flex w-fit items-center gap-4 rounded-full p-2 transition-all duration-100 md:w-[215px]">
               <Avatar shape="circle" alt={formattedFullName} />
               <div className="flex items-center gap-6">
                 <span className="text-midnight-blue hidden text-sm font-semibold md:inline">

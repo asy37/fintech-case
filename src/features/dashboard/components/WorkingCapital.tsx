@@ -22,8 +22,8 @@ export const WorkingCapital = ({ data }: Props) => {
   const incomeSeries = data.data.map((item) => item.income)
   const expenseSeries = data.data.map((item) => item.expense)
   return (
-    <Card>
-      <CardContent>
+    <Card className="h-[291px] p-6">
+      <CardContent className="p-0">
         <div className="flex w-full flex-col items-center justify-between px-2 md:h-[30px] md:flex-row md:py-4">
           <h1 className="text-lg font-semibold">Working Capital</h1>
           <div className="flex w-[338px] items-center justify-center md:h-[30px] md:justify-between">
@@ -41,31 +41,33 @@ export const WorkingCapital = ({ data }: Props) => {
                 </label>
               </div>
             </div>
-            <Select>
+            <Select value={data.period}>
               <SelectTrigger className="bg-light-snow h-[30px] min-w-[107px] border-0 text-xs font-normal">
-                <SelectValue placeholder="Last 7 days" />
+                <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem className="text-xs font-normal" value="sevendays">
+                <SelectItem className="text-xs font-normal" value="last7Days">
                   Last 7 days
                 </SelectItem>
-                <SelectItem className="text-xs font-normal" value="twoweeks">
+                <SelectItem className="text-xs font-normal" value="last2Weeks">
                   Last 2 weeks
                 </SelectItem>
-                <SelectItem className="text-xs font-normal" value="onemount">
-                  Last 1 mounts
+                <SelectItem className="text-xs font-normal" value="last1Month">
+                  Last 1 months
                 </SelectItem>
-                <SelectItem className="text-xs font-normal" value="sixmount">
-                  Last 6 mounts
+                <SelectItem className="text-xs font-normal" value="last6Months">
+                  Last 6 months
                 </SelectItem>
               </SelectContent>
             </Select>
           </div>
         </div>
         <LineChart
+          height={200}
           xData={xData}
           incomeSeries={incomeSeries}
           expenseSeries={expenseSeries}
+          currency={data.currency}
         />
       </CardContent>
     </Card>

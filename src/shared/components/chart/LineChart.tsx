@@ -2,12 +2,16 @@
 
 import { useEffect, useRef } from 'react'
 import * as echarts from 'echarts'
+import { formatCurrency } from '@/shared/utils/currency-format'
 
 interface LineChartProps {
-  title?: string
-  xData: string[]
-  incomeSeries: number[]
-  expenseSeries: number[]
+  readonly title?: string
+  readonly xData: string[]
+  readonly incomeSeries: number[]
+  readonly expenseSeries: number[]
+  readonly currency?: string
+  readonly width?: string | number
+  readonly height?: string | number
 }
 
 export default function LineChart({
@@ -15,13 +19,18 @@ export default function LineChart({
   xData,
   incomeSeries,
   expenseSeries,
+  currency = 'TRY',
+  width = '100%',
+  height = '300px',
 }: LineChartProps) {
   const chartRef = useRef<HTMLDivElement>(null)
+  const chartInstanceRef = useRef<echarts.ECharts | null>(null)
 
   useEffect(() => {
     if (!chartRef.current) return
 
     const chart = echarts.init(chartRef.current)
+    chartInstanceRef.current = chart
 
     const option = {
       tooltip: {
@@ -35,16 +44,42 @@ export default function LineChart({
         borderWidth: 1,
         textStyle: { color: '#000', fontWeight: 600 },
         padding: 10,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        formatter: (params: any) => {
-          const item = params[0]
-          return `
-              <div style="padding:6px 4px;">
-                <div style="font-size:16px; font-weight:600;">
-                  ${item.seriesName}: ${item.value.toLocaleString()}₺
+        formatter: (
+          params:
+            | echarts.TooltipComponentFormatterCallbackParams
+            | echarts.TooltipComponentFormatterCallbackParams[],
+        ) => {
+          const paramsArray = Array.isArray(params) ? params : [params]
+          if (paramsArray.length === 0) return ''
+
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const firstParam = paramsArray[0] as any
+          const month = firstParam.axisValue || firstParam.name || ''
+          let tooltipContent = `<div style="padding:6px 4px;">
+            <div style="font-size:14px; font-weight:600; margin-bottom:4px; color:#333;">
+              ${month}
+            </div>`
+
+          paramsArray.forEach((item) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const itemAny = item as any
+            if (itemAny.seriesName && itemAny.value !== undefined) {
+              const color = itemAny.color || '#000'
+              const value =
+                typeof itemAny.value === 'number' ? itemAny.value : 0
+
+              const formattedValue = formatCurrency(value, currency)
+              tooltipContent += `
+                <div style="font-size:14px; font-weight:600; margin-top:4px;">
+                  <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background-color:${color}; margin-right:6px;"></span>
+                  ${formattedValue}
                 </div>
-              </div>
-            `
+              `
+            }
+          })
+
+          tooltipContent += '</div>'
+          return tooltipContent
         },
       },
 
@@ -82,36 +117,59 @@ export default function LineChart({
         {
           name: 'Income',
           type: 'line',
-          smooth: true,
+          smooth: 0.3,
           symbol: 'circle',
           symbolSize: 8,
           itemStyle: { color: '#2A8A63' },
           lineStyle: { width: 3, color: '#2A8A63' },
           data: incomeSeries,
+          connectNulls: false,
         },
         {
           name: 'Expenses',
           type: 'line',
-          smooth: true,
+          smooth: 0.3,
           symbol: 'circle',
           symbolSize: 8,
           itemStyle: { color: '#D0E73C' },
           lineStyle: { width: 3, color: '#D0E73C' },
           data: expenseSeries,
+          connectNulls: false,
         },
       ],
     }
 
     chart.setOption(option)
 
-    const handleResize = () => chart.resize()
+    const resizeObserver = new ResizeObserver(() => {
+      if (chartInstanceRef.current) {
+        chartInstanceRef.current.resize()
+      }
+    })
+
+    resizeObserver.observe(chartRef.current)
+
+    const handleResize = () => {
+      if (chartInstanceRef.current) {
+        chartInstanceRef.current.resize()
+      }
+    }
     window.addEventListener('resize', handleResize)
 
     return () => {
-      chart.dispose()
+      resizeObserver.disconnect()
       window.removeEventListener('resize', handleResize)
+      if (chartInstanceRef.current) {
+        chartInstanceRef.current.dispose()
+        chartInstanceRef.current = null
+      }
     }
-  }, [title, xData, incomeSeries, expenseSeries])
+  }, [title, xData, incomeSeries, expenseSeries, currency])
 
-  return <div ref={chartRef} className="h-[300px] w-full" />
+  const style: React.CSSProperties = {
+    width: typeof width === 'number' ? `${width}px` : width,
+    height: typeof height === 'number' ? `${height}px` : height,
+  }
+
+  return <div ref={chartRef} style={style} />
 }

@@ -30,11 +30,11 @@ export default async function Dashboard() {
     }),
     queryOptions({
       queryKey: ['transaction-recent'],
-      queryFn: () => getTransactionRecent(5),
+      queryFn: () => getTransactionRecent(3),
     }),
     queryOptions({
       queryKey: ['transfers-scheduled'],
-      queryFn: () => getTransfersScheduled(5),
+      queryFn: () => getTransfersScheduled(),
     }),
   ]
 

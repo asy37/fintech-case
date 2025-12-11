@@ -24,7 +24,7 @@ export const RecentTransaction = ({ data }: Props) => {
             <span className="text-jungle-green text-sm font-semibold">
               View All
             </span>
-            <ArrowIcon />
+            <ArrowIcon className="text-jungle-green" />
           </Link>
         </div>
         <TransactionTable data={data} />

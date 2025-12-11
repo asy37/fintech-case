@@ -1,4 +1,10 @@
-import { ChipIcon, WifiIcon, VisaIcon, MasterCardIcon, MoreIcon } from '@/shared/components/icons'
+import {
+  ChipIcon,
+  WifiIcon,
+  VisaIcon,
+  MasterCardIcon,
+  MoreIcon,
+} from '@/shared/components/icons'
 import { WalletResponse } from '../types/wallet'
 import { cn } from '@/shared/utils/cn'
 import {
@@ -25,7 +31,7 @@ export const Wallet = ({ data }: Props) => {
         <h1 className="text-midnight-blue text-lg font-semibold">Wallet</h1>
         <DropdownMenu>
           <DropdownMenuTrigger className="cursor-pointer">
-            <MoreIcon />
+            <MoreIcon className="text-midnight-blue hover:text-lime-green transition-all duration-100 hover:scale-105" />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -44,7 +50,7 @@ export const Wallet = ({ data }: Props) => {
           <div
             key={item.id}
             className={cn(
-              'items-start flex flex-col rounded-2xl',
+              'flex flex-col items-start rounded-2xl',
               isFirst &&
                 'from-slate-dark to-onyx h-[210px] w-full bg-linear-to-br p-[30px] md:w-[354px]',
               isSecond &&
