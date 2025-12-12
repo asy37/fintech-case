@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { toast } from 'sonner'
+
 import { getUser } from '@/features/users/user/api/services/getUser'
 
 export const useUser = () => {

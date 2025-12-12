@@ -1,9 +1,9 @@
 import {
   DashboardIcon,
-  TransactionsIcon,
   InvoicesIcon,
   MyWalletsIcon,
   SettingsIcon,
+  TransactionsIcon,
 } from '@/shared/components/icons'
 
 type MockSidebarType = {

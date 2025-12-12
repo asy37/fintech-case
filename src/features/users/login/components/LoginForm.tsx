@@ -1,20 +1,20 @@
 // components/SignInForm.tsx
 'use client'
+import { zodResolver } from '@hookform/resolvers/zod'
 import React from 'react'
-import { Input } from '@/shared/components/ui/input'
-import { Button } from '@/shared/components/ui/button'
-import { Label } from '@/shared/components/ui/label'
-import { Card, CardContent } from '@/shared/components/ui/card'
-import { Spinner } from '@/shared/components/ui/spinner'
+import { useForm } from 'react-hook-form'
 
+import { useLogin } from '@/features/users/login/api/hooks/useLogin'
 import {
   LoginSchema,
   LoginSchemaType,
 } from '@/features/users/login/types/login-schema'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import { useLogin } from '@/features/users/login/api/hooks/useLogin'
 import { GoogleIcon } from '@/shared/components/icons'
+import { Button } from '@/shared/components/ui/button'
+import { Card, CardContent } from '@/shared/components/ui/card'
+import { Input } from '@/shared/components/ui/input'
+import { Label } from '@/shared/components/ui/label'
+import { Spinner } from '@/shared/components/ui/spinner'
 import { cn } from '@/shared/utils/cn'
 
 export default function LoginForm() {
@@ -39,12 +39,15 @@ export default function LoginForm() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <CardContent className="space-y-4 p-0">
           <div>
-            <Label htmlFor="email" className="text-midnight-blue p-2.5 pl-0">
+            <Label htmlFor="email" className="p-2.5 pl-0 text-midnight-blue">
               Email
             </Label>
             <Input
               className={cn(
-                'text-neutral-gray h-12 focus-visible:ring-0',
+                `
+                  h-12 text-neutral-gray
+                  focus-visible:ring-0
+                `,
                 errors.email && 'border-destructive',
               )}
               id="email"
@@ -59,12 +62,15 @@ export default function LoginForm() {
           </div>
 
           <div>
-            <Label htmlFor="password" className="text-midnight-blue p-2.5 pl-0">
+            <Label htmlFor="password" className="p-2.5 pl-0 text-midnight-blue">
               Password
             </Label>
             <Input
               className={cn(
-                'text-neutral-gray h-12 focus-visible:ring-0',
+                `
+                  h-12 text-neutral-gray
+                  focus-visible:ring-0
+                `,
                 errors.email && 'border-destructive',
               )}
               id="password"
@@ -80,7 +86,10 @@ export default function LoginForm() {
 
           <Button
             type="submit"
-            className="bg-lime-green text-midnight-blue h-12 w-full cursor-pointer hover:text-white"
+            className={`
+              h-12 w-full cursor-pointer bg-lime-green text-midnight-blue
+              hover:text-white
+            `}
             disabled={isLoading}
           >
             {isLoading ? <Spinner /> : 'Sign In'}
@@ -90,7 +99,7 @@ export default function LoginForm() {
             <Button
               type="button"
               variant="outline"
-              className="text-neutral-gray h-12 w-full cursor-pointer"
+              className="h-12 w-full cursor-pointer text-neutral-gray"
             >
               <GoogleIcon />
               Sign in with Google

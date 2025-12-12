@@ -1,12 +1,11 @@
+import { WalletResponse } from '@/features/dashboard/types/wallet'
 import {
   ChipIcon,
-  WifiIcon,
-  VisaIcon,
   MasterCardIcon,
   MoreIcon,
+  VisaIcon,
+  WifiIcon,
 } from '@/shared/components/icons'
-import { WalletResponse } from '../types/wallet'
-import { cn } from '@/shared/utils/cn'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,7 +14,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/shared/components/ui/dropdown-menu'
-import { WalletSkeleton } from './skeletons/WalletSkeleton'
+import { cn } from '@/shared/utils/cn'
+
+import { WalletSkeleton } from './WalletSkeleton'
 
 type Props = {
   data: WalletResponse | undefined
@@ -28,10 +29,13 @@ export const Wallet = ({ data }: Props) => {
   return (
     <div className="relative h-[359px] w-full">
       <div className="flex w-full items-center justify-between p-1.5">
-        <h1 className="text-midnight-blue text-lg font-semibold">Wallet</h1>
+        <h1 className="text-lg font-semibold text-midnight-blue">Wallet</h1>
         <DropdownMenu>
           <DropdownMenuTrigger className="cursor-pointer">
-            <MoreIcon className="text-midnight-blue hover:text-lime-green transition-all duration-100 hover:scale-105" />
+            <MoreIcon className={`
+              text-midnight-blue transition-all duration-100
+              hover:scale-105 hover:text-lime-green
+            `} />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -52,9 +56,17 @@ export const Wallet = ({ data }: Props) => {
             className={cn(
               'flex flex-col items-start rounded-2xl',
               isFirst &&
-                'from-slate-dark to-onyx h-[210px] w-full bg-linear-to-br p-[30px] md:w-[354px]',
+                `
+                  h-[210px] w-full bg-linear-to-br from-slate-dark to-onyx
+                  p-[30px]
+                  md:w-[354px]
+                `,
               isSecond &&
-                'bg-neutral-gray/10 absolute top-44 left-4 z-10 h-[172px] w-[90%] p-4 backdrop-blur-sm md:w-[324px]',
+                `
+                  absolute top-44 left-4 z-10 h-[172px] w-[90%]
+                  bg-neutral-gray/10 p-4 backdrop-blur-sm
+                  md:w-[324px]
+                `,
             )}
           >
             {(() => {

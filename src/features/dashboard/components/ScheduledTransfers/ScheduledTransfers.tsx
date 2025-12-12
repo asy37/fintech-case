@@ -1,12 +1,13 @@
 import Link from 'next/link'
-import { ArrowIcon } from '@/shared/components/icons'
 
-import { formatCurrency } from '@/shared/utils/currency-format'
-import { formatFullDate } from '@/shared/utils/date-format'
 import { ScheduledTransfersResponse } from '@/features/dashboard/types/scheduled-transfers'
+import { ArrowIcon } from '@/shared/components/icons'
 import Avatar from '@/shared/components/ui/avatar/avatar'
 import { cn } from '@/shared/utils/cn'
-import { ScheduledTransfersSkeleton } from './skeletons/ScheduledTransfersSkeleton'
+import { formatCurrency } from '@/shared/utils/currency-format'
+import { formatFullDate } from '@/shared/utils/date-format'
+
+import { ScheduledTransfersSkeleton } from './ScheduledTransfersSkeleton'
 
 type Props = {
   data: ScheduledTransfersResponse | undefined
@@ -23,9 +24,12 @@ export const ScheduledTransfers = ({ data }: Props) => {
         <h1 className="text-lg font-semibold">Scheduled Transfers</h1>
         <Link
           href={'/#'}
-          className="flex items-center transition-all duration-200 hover:scale-105"
+          className={`
+            flex items-center transition-all duration-200
+            hover:scale-105
+          `}
         >
-          <span className="text-jungle-green text-sm font-semibold">
+          <span className="text-sm font-semibold text-jungle-green">
             View All
           </span>
           <ArrowIcon className="text-jungle-green" />
@@ -41,7 +45,7 @@ export const ScheduledTransfers = ({ data }: Props) => {
                 'flex w-full items-center justify-between pt-1.5 pb-2.5',
                 item.id === transfers.at(-1)?.id
                   ? ''
-                  : 'border-border border-b',
+                  : 'border-b border-border',
               )}
             >
               <div className="flex items-center gap-4">
@@ -54,13 +58,13 @@ export const ScheduledTransfers = ({ data }: Props) => {
                 <div className="flex flex-col items-start">
                   <label
                     htmlFor="text"
-                    className="text-midnight-blue text-sm font-semibold"
+                    className="text-sm font-semibold text-midnight-blue"
                   >
                     {item.name}
                   </label>
                   <label
                     htmlFor="date"
-                    className="text-cadet-blue text-xs font-medium"
+                    className="text-xs font-medium text-cadet-blue"
                   >
                     {formattedDate}
                   </label>

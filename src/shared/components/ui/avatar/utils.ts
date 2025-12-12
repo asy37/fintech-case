@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import React from 'react'
+
 import { AvatarShape, AvatarSize } from './types'
 
 export const getSizeStyle = (size: AvatarSize): React.CSSProperties => {

@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { toast } from 'sonner'
+
 import { getFinancialSummary } from '@/features/dashboard/api/services/getFinancialSummary'
 
 export const useFinancialSummary = () => {

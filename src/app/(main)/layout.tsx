@@ -1,11 +1,13 @@
 import {
-  HydrationBoundary,
   dehydrate,
+  HydrationBoundary,
   queryOptions,
 } from '@tanstack/react-query'
-import { LayoutClient } from './layout.client'
-import getQueryClient from '@/shared/api/getQueryClient'
+
 import { getUser } from '@/features/users/user/api/services/getUser'
+import getQueryClient from '@/shared/api/getQueryClient'
+
+import { LayoutClient } from './layout.client'
 
 export default async function Layout({
   children,

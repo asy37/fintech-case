@@ -1,6 +1,7 @@
 'use client'
 
 import { create } from 'zustand'
+
 import { deleteCookie } from '@/shared/utils/cookie'
 
 type AuthState = {

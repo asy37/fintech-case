@@ -46,6 +46,8 @@
     "@types/webpack": "^5.28.5",
     "eslint": "^9",
     "eslint-config-next": "16.0.7",
+    "eslint-plugin-better-tailwindcss": "^3.8.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4",

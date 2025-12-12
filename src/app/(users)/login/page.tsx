@@ -1,6 +1,6 @@
 import { LoginView } from '@/features/users/login/view'
 
-const SingIn = () => {
+const Login = () => {
   return <LoginView />
 }
-export default SingIn
+export default Login

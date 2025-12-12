@@ -1,4 +1,6 @@
+import { WorkingCapitalResponse } from '@/features/dashboard/types/working-capital'
 import LineChart from '@/shared/components/chart/LineChart'
+import { Card, CardContent } from '@/shared/components/ui/card'
 import {
   Select,
   SelectContent,
@@ -6,9 +8,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/shared/components/ui/select'
-import { Card, CardContent } from '@/shared/components/ui/card'
-import { WorkingCapitalResponse } from '../types/working-capital'
-import { WorkingCapitalSkeleton } from './skeletons/WorkingCapitalSkeleton'
+
+import { WorkingCapitalSkeleton } from './WorkingCapitalSkeleton'
 
 type Props = {
   data: WorkingCapitalResponse | undefined
@@ -24,25 +25,34 @@ export const WorkingCapital = ({ data }: Props) => {
   return (
     <Card className="h-[291px] p-6">
       <CardContent className="p-0">
-        <div className="flex w-full flex-col items-center justify-between px-2 md:h-[30px] md:flex-row md:py-4">
+        <div className={`
+          flex w-full flex-col items-center justify-between px-2
+          md:h-[30px] md:flex-row md:py-4
+        `}>
           <h1 className="text-lg font-semibold">Working Capital</h1>
-          <div className="flex w-[338px] items-center justify-center md:h-[30px] md:justify-between">
+          <div className={`
+            flex w-[338px] items-center justify-center
+            md:h-[30px] md:justify-between
+          `}>
             <div className="flex h-4 gap-2">
               <div className="flex items-center gap-2.5">
-                <span className="bg-jungle-green h-2 w-2 rounded-full" />
+                <span className="h-2 w-2 rounded-full bg-jungle-green" />
                 <label className="text-xs font-normal" htmlFor="label">
                   Income
                 </label>
               </div>
               <div className="flex items-center gap-2.5">
-                <span className="bg-lime-green h-2 w-2 rounded-full" />
+                <span className="h-2 w-2 rounded-full bg-lime-green" />
                 <label className="text-xs font-normal" htmlFor="label">
                   Expenses
                 </label>
               </div>
             </div>
             <Select value={data.period}>
-              <SelectTrigger className="bg-light-snow h-[30px] min-w-[107px] border-0 text-xs font-normal">
+              <SelectTrigger className={`
+                h-[30px] min-w-[107px] border-0 bg-light-snow text-xs
+                font-normal
+              `}>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>

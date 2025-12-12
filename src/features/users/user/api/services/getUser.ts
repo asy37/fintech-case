@@ -1,6 +1,6 @@
+import { UserResponse } from '@/features/users/user/types/user'
 import { createServerApi } from '@/shared/api/httpClient'
 import { BaseResponse } from '@/shared/types/base-response-type'
-import { UserResponse } from '../../types/user'
 
 export const getUser = async (): Promise<BaseResponse<UserResponse>> => {
   const api = await createServerApi()

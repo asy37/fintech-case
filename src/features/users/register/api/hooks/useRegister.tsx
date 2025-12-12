@@ -1,8 +1,9 @@
 import { useMutation } from '@tanstack/react-query'
-import { useRouter } from 'next/navigation'
-import { postRegister } from '@/features/users/register/api/services/postRegister'
-import { toast } from 'sonner'
 import { AxiosError } from 'axios'
+import { useRouter } from 'next/navigation'
+import { toast } from 'sonner'
+
+import { postRegister } from '@/features/users/register/api/services/postRegister'
 
 export const useRegister = () => {
   const router = useRouter()

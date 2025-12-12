@@ -1,8 +1,9 @@
 'use client'
-import { TotalWalletIcon, SavedWalletIcon } from '@/shared/components/icons'
-import { FinancialSummaryResponse } from '../types/financial-summary'
-import { SummaryCards } from '@/features/dashboard/components/SummaryCard'
-import { SummaryCardSkeleton } from './skeletons/SummaryCardSkeleton'
+import { FinancialSummaryResponse } from '@/features/dashboard/types/financial-summary'
+import { SavedWalletIcon,TotalWalletIcon } from '@/shared/components/icons'
+
+import { SummaryCard } from './_components/SummaryCard'
+import { SummaryCardSkeleton } from './_components/SummaryCardSkeleton'
 
 type Props = {
   data: FinancialSummaryResponse | undefined
@@ -16,18 +17,21 @@ export const FinancialSummary = ({ data }: Props) => {
   const expense = data.totalExpense
   const savings = data.totalSavings
   return (
-    <div className="flex w-full items-center justify-between gap-4 overflow-x-scroll md:h-[105px] md:gap-0">
-      <SummaryCards
+    <div className={`
+      flex w-full items-center justify-between gap-4 overflow-x-scroll
+      md:h-[105px] md:gap-0
+    `}>
+      <SummaryCard
         data={balance}
         Icon={TotalWalletIcon}
         title={'Total balance'}
       />
-      <SummaryCards
+      <SummaryCard
         data={expense}
         Icon={TotalWalletIcon}
         title={'Total spending'}
       />
-      <SummaryCards
+      <SummaryCard
         data={savings}
         Icon={SavedWalletIcon}
         title={'Total saved'}

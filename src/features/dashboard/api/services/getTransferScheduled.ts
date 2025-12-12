@@ -1,6 +1,6 @@
+import { ScheduledTransfersResponse } from '@/features/dashboard/types/scheduled-transfers'
 import { createServerApi } from '@/shared/api/httpClient'
 import { BaseResponse } from '@/shared/types/base-response-type'
-import { ScheduledTransfersResponse } from '@/features/dashboard/types/scheduled-transfers'
 
 export const getTransfersScheduled = async (): Promise<
   BaseResponse<ScheduledTransfersResponse>

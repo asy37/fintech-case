@@ -1,5 +1,7 @@
-import { Kumbh_Sans } from 'next/font/google'
 import './globals.css'
+
+import { Kumbh_Sans } from 'next/font/google'
+
 import LayoutClient from './layout.client'
 
 const kumbhSans = Kumbh_Sans({
@@ -14,7 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${kumbhSans.variable} antialiased`}>
+      <body className={`
+        ${kumbhSans.variable}
+        antialiased
+      `}>
         <LayoutClient>{children}</LayoutClient>
       </body>
     </html>

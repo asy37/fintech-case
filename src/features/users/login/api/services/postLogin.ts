@@ -1,8 +1,8 @@
-import { clearAuth, setAccessToken } from '@/store/useAuthStore'
-import { apiClient, extractAccessToken } from '@/shared/api/httpClient'
-import { setCookie, deleteCookie } from '@/shared/utils/cookie'
 import { LoginPayload, LoginResponse } from '@/features/users/login/types/login'
+import { apiClient, extractAccessToken } from '@/shared/api/httpClient'
 import { BaseResponse } from '@/shared/types/base-response-type'
+import { deleteCookie,setCookie } from '@/shared/utils/cookie'
+import { clearAuth, setAccessToken } from '@/store/useAuthStore'
 
 export const postLogin = async (payload: LoginPayload) => {
   const response = await apiClient.post<BaseResponse<LoginResponse>>(

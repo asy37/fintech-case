@@ -1,4 +1,5 @@
 import { RecentTransactionsResponse } from '@/features/dashboard/types/recent-transactions'
+import Avatar from '@/shared/components/ui/avatar/avatar'
 import {
   Table,
   TableBody,
@@ -8,7 +9,6 @@ import {
   TableRow,
 } from '@/shared/components/ui/table'
 import { formatCurrency } from '@/shared/utils/currency-format'
-import Avatar from '../ui/avatar/avatar'
 
 type Props = {
   data: RecentTransactionsResponse
@@ -19,16 +19,22 @@ export const TransactionTable = ({ data }: Props) => {
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead className="text-cadet-blue w-[100px] text-sm font-semibold">
+          <TableHead className="w-[100px] text-sm font-semibold text-cadet-blue">
             NAME/BUSINESS
           </TableHead>
-          <TableHead className="text-cadet-blue text-center text-sm font-semibold">
+          <TableHead
+            className={`text-center text-sm font-semibold text-cadet-blue`}
+          >
             TYPE
           </TableHead>
-          <TableHead className="text-cadet-blue text-center text-sm font-semibold">
+          <TableHead
+            className={`text-center text-sm font-semibold text-cadet-blue`}
+          >
             AMOUNT
           </TableHead>
-          <TableHead className="text-cadet-blue text-center text-sm font-semibold">
+          <TableHead
+            className={`text-center text-sm font-semibold text-cadet-blue`}
+          >
             DATE
           </TableHead>
         </TableRow>
@@ -47,28 +53,40 @@ export const TransactionTable = ({ data }: Props) => {
                   width={40}
                   height={40}
                 />
-                <div className="flex flex-col items-center justify-center font-medium">
+                <div
+                  className={`
+                    flex flex-col items-center justify-center font-medium
+                  `}
+                >
                   <label
                     htmlFor="text"
-                    className="text-midnight-blue text-center text-sm font-medium"
+                    className={`
+                      text-center text-sm font-medium text-midnight-blue
+                    `}
                   >
                     {item.name}
                   </label>
                   <label
                     htmlFor="text"
-                    className="text-cadet-blue text-xs font-normal"
+                    className="text-xs font-normal text-cadet-blue"
                   >
                     {item.business}
                   </label>
                 </div>
               </TableCell>
-              <TableCell className="text-cadet-blue text-center font-medium">
+              <TableCell className="text-center font-medium text-cadet-blue">
                 {item.type}
               </TableCell>
-              <TableCell className="text-midnight-blue text-center text-sm font-semibold">
+              <TableCell
+                className={`
+                  text-center text-sm font-semibold text-midnight-blue
+                `}
+              >
                 {formattedAmount}
               </TableCell>
-              <TableCell className="text-cadet-blue text-center text-sm font-semibold">
+              <TableCell
+                className={`text-center text-sm font-semibold text-cadet-blue`}
+              >
                 {new Date(item.date).toLocaleDateString('en-GB', {
                   day: '2-digit',
                   month: 'short',

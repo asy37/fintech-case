@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { toast } from 'sonner'
+
 import { getWallet } from '@/features/dashboard/api/services/getWallet'
 
 export const useWallet = () => {

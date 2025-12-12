@@ -1,16 +1,16 @@
 import {
-  HydrationBoundary,
   dehydrate,
+  HydrationBoundary,
   queryOptions,
 } from '@tanstack/react-query'
 
-import { DashboardView } from '@/features/dashboard/view'
-import getQueryClient from '@/shared/api/getQueryClient'
 import { getFinancialSummary } from '@/features/dashboard/api/services/getFinancialSummary'
-import { getWorkingCapital } from '@/features/dashboard/api/services/getWorkingCapital'
-import { getWallet } from '@/features/dashboard/api/services/getWallet'
 import { getTransactionRecent } from '@/features/dashboard/api/services/getTransactionRecent'
 import { getTransfersScheduled } from '@/features/dashboard/api/services/getTransferScheduled'
+import { getWallet } from '@/features/dashboard/api/services/getWallet'
+import { getWorkingCapital } from '@/features/dashboard/api/services/getWorkingCapital'
+import { DashboardView } from '@/features/dashboard/view'
+import getQueryClient from '@/shared/api/getQueryClient'
 
 export default async function Dashboard() {
   const queryClient = getQueryClient()

@@ -1,6 +1,6 @@
+import { FinancialSummaryResponse } from '@/features/dashboard/types/financial-summary'
 import { createServerApi } from '@/shared/api/httpClient'
 import { BaseResponse } from '@/shared/types/base-response-type'
-import { FinancialSummaryResponse } from '@/features/dashboard/types/financial-summary'
 
 export const getFinancialSummary = async (): Promise<
   BaseResponse<FinancialSummaryResponse>

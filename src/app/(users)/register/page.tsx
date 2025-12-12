@@ -1,6 +1,6 @@
 import { RegisterView } from '@/features/users/register/view'
 
-const SingUp = () => {
+const Register = () => {
   return <RegisterView />
 }
-export default SingUp
+export default Register

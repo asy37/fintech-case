@@ -1,8 +1,10 @@
 import { AxiosError, AxiosInstance, InternalAxiosRequestConfig } from 'axios'
-import { clearAuth, setAccessToken } from '@/store/useAuthStore'
+
 import { deleteCookie, setCookie } from '@/shared/utils/cookie'
-import { HTTP_UNAUTHORIZED, REFRESH_TOKEN_ENDPOINT } from '../config'
+import { clearAuth, setAccessToken } from '@/store/useAuthStore'
+
 import type { AccessTokenShape, AxiosRequestConfigWithRetry } from '../config'
+import { HTTP_UNAUTHORIZED, REFRESH_TOKEN_ENDPOINT } from '../config'
 import { createAxiosInstance } from '../factory'
 import { extractAccessToken } from '../utils'
 

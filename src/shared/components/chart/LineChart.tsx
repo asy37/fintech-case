@@ -1,7 +1,8 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
 import * as echarts from 'echarts'
+import { useEffect, useRef } from 'react'
+
 import { formatCurrency } from '@/shared/utils/currency-format'
 
 interface LineChartProps {

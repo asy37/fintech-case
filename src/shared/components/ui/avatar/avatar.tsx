@@ -1,11 +1,12 @@
 'use client'
 
-import React from 'react'
 import clsx from 'clsx'
 import Image from 'next/image'
+import React from 'react'
+
+import { Spinner } from '../spinner'
 import { AvatarShape, AvatarSize, GetAvatarContent } from './types'
 import { getNoUser, getShapeClasses, getSizeStyle } from './utils'
-import { Spinner } from '../spinner'
 
 export type AvatarProps = {
   alt?: string

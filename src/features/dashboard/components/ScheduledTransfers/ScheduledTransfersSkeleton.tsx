@@ -3,15 +3,19 @@ import { Skeleton } from '@/shared/components/ui/skeleton'
 
 export const ScheduledTransfersSkeleton = () => {
   return (
-    <CardContent className="flex flex-col space-y-6 w-full">
+    <CardContent className="flex w-full flex-col space-y-6">
       <div className="flex w-full items-center justify-between">
         <Skeleton className="h-5 w-40" />
         <Skeleton className="h-5 w-16" />
       </div>
 
-      {Array.from({ length: 3 }).map((_, i) => (
-        <div key={i} className="space-y-4">
-          <div className="border-border flex w-full items-center justify-between border-b pt-1.5 pb-2.5 last:border-none">
+      {Array.from({ length: 3 }, (_, i) => i).map((index) => (
+        <div key={`skeleton-${index}`} className="space-y-4">
+          <div className={`
+            flex w-full items-center justify-between border-b border-border
+            pt-1.5 pb-2.5
+            last:border-none
+          `}>
             <div className="flex items-center gap-4">
               <Skeleton className="h-10 w-10 rounded-full" />
 

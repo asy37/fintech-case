@@ -1,8 +1,9 @@
 import { useMutation } from '@tanstack/react-query'
-import { useRouter } from 'next/navigation'
-import { postLogout } from '@/features/users/login/api/services/postLogin'
-import { toast } from 'sonner'
 import { AxiosError } from 'axios'
+import { useRouter } from 'next/navigation'
+import { toast } from 'sonner'
+
+import { postLogout } from '@/features/users/login/api/services/postLogin'
 
 export const useLogout = () => {
   const router = useRouter()

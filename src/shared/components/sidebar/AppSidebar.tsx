@@ -1,4 +1,10 @@
 'use client'
+import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
+import { useLogout } from '@/features/users/login/api/hooks/useLogout'
+import { HelpIcon, LogoutIcon } from '@/shared/components/icons'
 import {
   Sidebar,
   SidebarContent,
@@ -8,25 +14,27 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/shared/components/ui/sidebar'
-import Image from 'next/image'
-import { mockSidebar } from './utils'
-import { usePathname } from 'next/navigation'
-
-import Link from 'next/link'
-import { HelpIcon, LogoutIcon } from '@/shared/components/icons'
-import { useLogout } from '@/features/users/login/api/hooks/useLogout'
-import { Spinner } from '../ui/spinner'
 import { cn } from '@/shared/utils/cn'
+
+import { Spinner } from '../ui/spinner'
+import { mockSidebar } from './utils'
 
 export const AppSidebar = () => {
   const path = usePathname()
   const { logout, isLoading } = useLogout()
   return (
     <Sidebar className="bg-snow px-6 pt-[30px] pb-[100px]">
-      <SidebarHeader className="p-12 md:p-2">
+      <SidebarHeader className={`
+        p-12
+        md:p-2
+      `}>
         <Image src="/icons/logo.svg" alt="logo" height={30} width={107} />
       </SidebarHeader>
-      <div className="flex h-full flex-col items-center gap-24 sm:gap-80 md:justify-between md:gap-0">
+      <div className={`
+        flex h-full flex-col items-center gap-24
+        sm:gap-80
+        md:justify-between md:gap-0
+      `}>
         <div>
           <SidebarGroup>
             <SidebarMenu>
@@ -37,15 +45,18 @@ export const AppSidebar = () => {
                     <Link href={item.href}>
                       <SidebarMenuButton
                         className={cn(
-                          'text-neutral-gray h-12 w-[200px] cursor-pointer rounded-md p-3.5 text-sm',
+                          `
+                            h-12 w-[200px] cursor-pointer rounded-md p-3.5
+                            text-sm text-neutral-gray
+                          `,
                           isActive &&
-                            'bg-lime-green text-midnight-blue font-semibold',
+                            'bg-lime-green font-semibold text-midnight-blue',
                         )}
                       >
                         <span className="h-5 w-5">
                           <item.icon
                             className={cn(
-                              'stroke-neutral-gray fill-neutral-gray',
+                              'fill-neutral-gray stroke-neutral-gray',
                               isActive && 'fill-midnight-blue',
                             )}
                           />
@@ -67,15 +78,18 @@ export const AppSidebar = () => {
                   <Link href="#">
                     <SidebarMenuButton
                       className={cn(
-                        'text-neutral-gray h-12 w-[200px] cursor-pointer rounded-md p-3.5 text-sm',
+                        `
+                          h-12 w-[200px] cursor-pointer rounded-md p-3.5 text-sm
+                          text-neutral-gray
+                        `,
                         path === '/help' &&
-                          'bg-lime-green text-midnight-blue font-semibold',
+                          'bg-lime-green font-semibold text-midnight-blue',
                       )}
                     >
                       <span className="h-5 w-5">
                         <HelpIcon
                           className={cn(
-                            'stroke-neutral-gray fill-neutral-gray',
+                            'fill-neutral-gray stroke-neutral-gray',
                             path === '/help' && 'fill-midnight-blue',
                           )}
                         />
@@ -88,7 +102,10 @@ export const AppSidebar = () => {
                   <SidebarMenuButton
                     disabled={false}
                     onClick={() => logout()}
-                    className="text-neutral-gray h-12 w-[200px] cursor-pointer rounded-md p-3.5 text-sm"
+                    className={`
+                      h-12 w-[200px] cursor-pointer rounded-md p-3.5 text-sm
+                      text-neutral-gray
+                    `}
                   >
                     {isLoading ? (
                       <Spinner />
